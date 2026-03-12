@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `이름: ${name}\n이메일: ${email}\n\n문의 내용:\n${message}`
       );
 
-      window.location.href = `mailto:contact@cyseculab.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:office1@cyseculab.com?subject=${subject}&body=${body}`;
     });
   }
 });
