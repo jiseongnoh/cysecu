@@ -59,16 +59,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('.solutions__tab');
   const panels = document.querySelectorAll('.solutions__panel');
 
+  function activateTab(targetId) {
+    tabs.forEach(t => t.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+
+    const targetTab = document.querySelector(`.solutions__tab[data-target="${targetId}"]`);
+    const targetPanel = document.getElementById(targetId);
+    if (targetTab) targetTab.classList.add('active');
+    if (targetPanel) targetPanel.classList.add('active');
+  }
+
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const target = tab.dataset.target;
-
-      tabs.forEach(t => t.classList.remove('active'));
-      panels.forEach(p => p.classList.remove('active'));
-
-      tab.classList.add('active');
-      document.getElementById(target).classList.add('active');
+      activateTab(target);
+      history.replaceState(null, '', '#' + target);
     });
+  });
+
+  // Activate tab from URL hash on load
+  const hash = window.location.hash.slice(1);
+  if (hash && hash.startsWith('sol-')) {
+    activateTab(hash);
+    setTimeout(() => {
+      const solSection = document.getElementById('solutions');
+      if (solSection) solSection.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+
+  // Listen for hash changes
+  window.addEventListener('hashchange', () => {
+    const h = window.location.hash.slice(1);
+    if (h && h.startsWith('sol-')) {
+      activateTab(h);
+    }
   });
 
   // --- Solution Accordion (mobile) ---
