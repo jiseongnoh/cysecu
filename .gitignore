@@ -1,0 +1,23 @@
+# Temp/OS files
+.DS_Store
+Thumbs.db
+
+# Raw source files
+assets/fonts_raw/
+[스타트런]*
+[폰트]*
+
+# OMC state
+.omc/
+.omx/
+
+# Original slide images (keep only renamed ones)
+assets/images/slide*
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Docs/plans (local only)
+docs/

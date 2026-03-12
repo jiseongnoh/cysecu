@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사이시큐연구소 | CySecuLab - 연결된 모든 사이버 공간을 안전하게</title>
+  <meta name="description" content="KAIST 정보보호대학원 기반 시스템 보안 연구소. Confidential AI, Hardware Security, 네트워크 보안 솔루션을 제공합니다.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <img src="assets/images/logo.png" alt="CySecuLab">
+        <span class="nav__logo-text">사이시큐연구소</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#capabilities">역량</a></li>
+        <li><a href="#solutions">솔루션</a></li>
+        <li><a href="#achievements">성과</a></li>
+        <li><a href="#team">연구진</a></li>
+        <li><a href="#contact">문의</a></li>
+      </ul>
+      <button class="nav__mobile-toggle" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__content">
+      <img src="assets/images/logo.png" alt="CySecuLab" class="hero__logo">
+      <h1 class="hero__title">연결된 모든 사이버 공간을<br>안전하게 보호하는 시스템 보안 연구소</h1>
+      <div class="hero__taglines">
+        <p class="hero__tagline">사람과 사람사이,</p>
+        <p class="hero__tagline">사람과 에이전트사이,</p>
+        <p class="hero__tagline">에이전트와 에이전트 사이</p>
+      </div>
+      <div class="hero__cta">
+        <a href="#solutions" class="btn btn--primary">솔루션 알아보기</a>
+        <a href="#contact" class="btn btn--secondary">문의하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Problem ===== -->
+  <section class="section section--alt" id="problem">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">왜 새로운 보안이 필요한가</h2>
+        <p class="section__subtitle">빠르게 진화하는 위협에 대응하는 차세대 보안 기술</p>
+      </div>
+      <div class="problem-grid fade-up">
+        <div class="problem-card">
+          <div class="problem-card__icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3 class="problem-card__title">사이버 공격 & 데이터 유출</h3>
+          <ul class="problem-card__list">
+            <li>국가 기관 및 기업 대상 대규모 해킹 사고 증가</li>
+            <li>개인정보 유출로 인한 사회적 피해 확산</li>
+            <li>공급망 및 네트워크 인프라 취약점 악용</li>
+          </ul>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon"><i class="fa-solid fa-robot"></i></div>
+          <h3 class="problem-card__title">AI 시대의 새로운 위협</h3>
+          <ul class="problem-card__list">
+            <li>AI 모델 탈취 및 적대적 공격(Adversarial Attack)</li>
+            <li>AI 에이전트 간 상호작용에서 발생하는 예측 불가 위험</li>
+            <li>AI 서비스를 통한 민감정보 유출 및 프라이버시 침해</li>
+          </ul>
+        </div>
+      </div>
+      <p class="problem-transition fade-up">
+        <i class="fa-solid fa-arrow-down" style="color: var(--accent); margin-right: 8px;"></i>
+        사이시큐연구소가 이 문제를 해결합니다
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">사이시큐연구소</h2>
+        <p class="section__subtitle">CySecuLab</p>
+      </div>
+      <div class="about__content fade-up">
+        <span class="about__label">KAIST 정보보호대학원 사이버시스템 보안 연구실 기반</span>
+        <p class="about__text">
+          2023년 창업한 사이시큐연구소는 대한민국 최고의 보안 인력과 혁신적인 아이디어를 결합해
+          미래 정보 보안 기술을 선도합니다. 엔드 디바이스부터 클라우드 환경까지,
+          연결된 모든 공간 사이의 안전한 교류와 실행을 보장합니다.
+        </p>
+        <div class="about__badges">
+          <span class="badge">Confidential AI</span>
+          <span class="badge">Hardware Security</span>
+          <span class="badge">HW/Systems/Networks 보안</span>
+          <span class="badge">신뢰 실행 환경(TEE)</span>
+          <span class="badge">AI Agent Safety</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Capabilities ===== -->
+  <section class="section section--alt" id="capabilities">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">핵심 역량</h2>
+        <p class="section__subtitle">세계 최고 수준의 보안 기술력</p>
+      </div>
+      <div class="cap-grid fade-up">
+        <div class="cap-card">
+          <div class="cap-card__icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3 class="cap-card__title">기술 중심 기업</h3>
+          <p class="cap-card__desc">KAIST 연구실의 원천 기술을 기반으로 학계와 업계 양측에서 검증된 혁신 기술을 보유</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-card__icon"><i class="fa-solid fa-user-graduate"></i></div>
+          <h3 class="cap-card__title">최고 수준 연구진</h3>
+          <p class="cap-card__desc">UC Berkeley, KAIST 정보보호대학원 출신 박사급 연구진으로 구성된 전문 팀</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-card__icon"><i class="fa-solid fa-trophy"></i></div>
+          <h3 class="cap-card__title">세계적으로 검증된 성과</h3>
+          <p class="cap-card__desc">ACM CCS 등 Top-Security Conference 논문 게재 및 국제 해킹대회 수상 실적</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-card__icon"><i class="fa-solid fa-lock"></i></div>
+          <h3 class="cap-card__title">보유 핵심 기술</h3>
+          <p class="cap-card__desc">Confidential AI, 하드웨어 보안 모니터, 네트워크 보안, SW 공급망 보안 등 다수 원천 기술 확보</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Solutions ===== -->
+  <section class="section" id="solutions">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">보안 솔루션</h2>
+        <p class="section__subtitle">엔드 디바이스부터 클라우드까지, 모든 계층을 보호합니다</p>
+      </div>
+
+      <!-- Desktop Tabs -->
+      <div class="solutions__tabs fade-up">
+        <button class="solutions__tab active" data-target="sol-tsa">TSA</button>
+        <button class="solutions__tab" data-target="sol-tpa">TPA</button>
+        <button class="solutions__tab" data-target="sol-dpf">DPF</button>
+        <button class="solutions__tab" data-target="sol-ccbox">CC-BOX</button>
+        <button class="solutions__tab" data-target="sol-ccsbom">CC-SBOM</button>
+        <button class="solutions__tab" data-target="sol-outerstellar">Outerstellar</button>
+      </div>
+
+      <div class="solutions__panels">
+        <!-- TSA -->
+        <div class="solutions__panel active" id="sol-tsa">
+          <div class="solution-detail">
+            <div class="solution-detail__info">
+              <p class="solution-detail__name">TSA</p>
+              <h3 class="solution-detail__title">Trusted Safety for Multiple AI Agents</h3>
+              <p class="solution-detail__desc">다수의 AI 에이전트의 상호작용에서 발생하는 예상치 못한 위험을 조절하고 제어하는 통합형 프레임워크입니다.</p>
+              <ul class="solution-detail__features">
+                <li>통합형 멀티 에이전트 프레임워크 구축</li>
+                <li>에이전트 입출력 보호 - 민감정보, 윤리적 기준 위반 방지</li>
+                <li>에이전트 모델 보호 및 DRM 라이선스 관리</li>
+                <li>모델 탈취 방지 및 외부 노출 차단</li>
+              </ul>
+              <div class="solution-detail__tags">
+                <span class="badge">AI Agent Safety</span>
+                <span class="badge">Multi-Agent System</span>
+              </div>
+            </div>
+            <div class="solution-detail__image">
+              <img src="assets/images/solution-tsa.png" alt="TSA 아키텍처">
+            </div>
+          </div>
+        </div>
+
+        <!-- TPA -->
+        <div class="solutions__panel" id="sol-tpa">
+          <div class="solution-detail">
+            <div class="solution-detail__info">
+              <p class="solution-detail__name">TPA</p>
+              <h3 class="solution-detail__title">Trusted Privacy Filter Agent</h3>
+              <p class="solution-detail__desc">AI 서비스 이용 시 사용자의 개인정보와 기밀정보를 가명화하여 안전하게 보호하는 프라이버시 필터 에이전트입니다.</p>
+              <ul class="solution-detail__features">
+                <li>개인 식별 정보(PII) 및 영업비밀 자동 탐지 및 가명화 처리</li>
+                <li>AI 기반 맥락 분석으로 정보 의미를 유지한 채 가명화 수행</li>
+                <li>웹 브라우저 확장 프로그램으로 다양한 AI 서비스에 대응</li>
+                <li>Membership inference, model inversion 등 다양한 공격 방어</li>
+              </ul>
+              <div class="solution-detail__tags">
+                <span class="badge">Privacy Protection</span>
+                <span class="badge">PII Filtering</span>
+              </div>
+            </div>
+            <div class="solution-detail__image">
+              <img src="assets/images/solution-tpa.png" alt="TPA 아키텍처">
+            </div>
+          </div>
+        </div>
+
+        <!-- DPF -->
+        <div class="solutions__panel" id="sol-dpf">
+          <div class="solution-detail">
+            <div class="solution-detail__info">
+              <p class="solution-detail__name">DPF</p>
+              <h3 class="solution-detail__title">Dialect Perimeter Filter</h3>
+              <p class="solution-detail__desc">고유한 Dialect 기반 통신 체계를 활용하여 네트워크 경계를 보호하는 차세대 보안 시스템입니다.</p>
+              <ul class="solution-detail__features">
+                <li>Dialect 기반 디바이스 인증 및 제로 트러스트 구현</li>
+                <li>Dialect of Things - IoT 환경 네트워크 보안</li>
+                <li>운영체제/커널 레벨 네트워킹 보안</li>
+                <li>원격 메모리 시스템 보안 연구 기반</li>
+              </ul>
+              <div class="solution-detail__tags">
+                <span class="badge">Network Security</span>
+                <span class="badge">Zero Trust</span>
+                <span class="badge">IoT Security</span>
+              </div>
+            </div>
+            <div class="solution-detail__image">
+              <img src="assets/images/solution-dpf.png" alt="DPF 아키텍처">
+            </div>
+          </div>
+        </div>
+
+        <!-- CC-BOX -->
+        <div class="solutions__panel" id="sol-ccbox">
+          <div class="solution-detail">
+            <div class="solution-detail__info">
+              <p class="solution-detail__name">CC-BOX</p>
+              <h3 class="solution-detail__title">Confidential Computing Platform</h3>
+              <p class="solution-detail__desc">데이터 프라이버시 및 보안 규제 준수를 위한 기밀성 보장 보안 플랫폼입니다. 저장 데이터뿐만 아니라 연산 중인 데이터까지 안전하게 보호합니다.</p>
+              <ul class="solution-detail__features">
+                <li>연산 중 데이터 보호 - 실행 시에도 기밀성 보장</li>
+                <li>금융/의료/기업 비밀 데이터의 규제 준수 지원</li>
+                <li>지적 재산(IP)을 서비스 플랫폼 제공자로부터 보호</li>
+                <li>간편한 적용으로 넓은 시스템 범위 지원</li>
+              </ul>
+              <div class="solution-detail__tags">
+                <span class="badge">Confidential Computing</span>
+                <span class="badge">Data Privacy</span>
+                <span class="badge">Compliance</span>
+              </div>
+            </div>
+            <div class="solution-detail__image">
+              <img src="assets/images/solution-ccbox-1.png" alt="CC-BOX 아키텍처">
+            </div>
+          </div>
+        </div>
+
+        <!-- CC-SBOM -->
+        <div class="solutions__panel" id="sol-ccsbom">
+          <div class="solution-detail">
+            <div class="solution-detail__info">
+              <p class="solution-detail__name">CC-SBOM</p>
+              <h3 class="solution-detail__title">Confidential Computing SBOM</h3>
+              <p class="solution-detail__desc">CC-BOX 안전 실행 환경과 연계하여 소프트웨어 구성 명세서(SBOM) 생성을 지원하는 보안 솔루션입니다.</p>
+              <ul class="solution-detail__features">
+                <li>사용자 기밀정보(소스코드 등) 유출 방지</li>
+                <li>실시간 취약점 관리 서비스 제공</li>
+                <li>클라우드 및 서버 소유자로부터 소프트웨어 자산과 IP 보호</li>
+                <li>의료, 금융, OEM, 산업 제어 시스템 등 규제 분야에 특화</li>
+              </ul>
+              <div class="solution-detail__tags">
+                <span class="badge">SBOM</span>
+                <span class="badge">Supply Chain Security</span>
+                <span class="badge">Vulnerability Management</span>
+              </div>
+            </div>
+            <div class="solution-detail__image">
+              <img src="assets/images/solution-ccsbom.png" alt="CC-SBOM 아키텍처">
+            </div>
+          </div>
+        </div>
+
+        <!-- Outerstellar -->
+        <div class="solutions__panel" id="sol-outerstellar">
+          <div class="solution-detail">
+            <div class="solution-detail__info">
+              <p class="solution-detail__name">Outerstellar</p>
+              <h3 class="solution-detail__title">Hardware-based Instruction-flow Safety Monitor</h3>
+              <p class="solution-detail__desc">하드웨어 기반으로 시스템의 명령어 흐름을 모니터링하여 무결성을 보장하는 보안 솔루션입니다. ACM CCS에 게재된 Interstellar 연구를 기반으로 합니다.</p>
+              <ul class="solution-detail__features">
+                <li>하드웨어 수준의 명령어 흐름 모니터링</li>
+                <li>OS 커널 무결성 실시간 검증</li>
+                <li>소프트웨어 조작이 불가능한 하드웨어 기반 보안</li>
+                <li>Top-Security Conference(ACM CCS) 검증 기술</li>
+              </ul>
+              <div class="solution-detail__tags">
+                <span class="badge">Hardware Security</span>
+                <span class="badge">Integrity Monitor</span>
+              </div>
+            </div>
+            <div class="solution-detail__image">
+              <img src="assets/images/solution-outerstellar.png" alt="Outerstellar 아키텍처">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Accordion -->
+      <div class="solutions__accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>TSA - Trusted Safety for Multiple AI Agents</span>
+            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content__inner">
+              <p class="solution-detail__desc">다수의 AI 에이전트의 상호작용에서 발생하는 예상치 못한 위험을 조절하고 제어하는 통합형 프레임워크입니다.</p>
+              <ul class="solution-detail__features">
+                <li>통합형 멀티 에이전트 프레임워크 구축</li>
+                <li>에이전트 입출력 보호</li>
+                <li>에이전트 모델 보호 및 DRM 라이선스 관리</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>TPA - Trusted Privacy Filter Agent</span>
+            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content__inner">
+              <p class="solution-detail__desc">AI 서비스 이용 시 사용자의 개인정보와 기밀정보를 가명화하여 안전하게 보호하는 프라이버시 필터 에이전트입니다.</p>
+              <ul class="solution-detail__features">
+                <li>PII 및 영업비밀 자동 탐지 및 가명화</li>
+                <li>AI 기반 맥락 분석 가명화</li>
+                <li>웹 브라우저 확장 프로그램 형태</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>DPF - Dialect Perimeter Filter</span>
+            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content__inner">
+              <p class="solution-detail__desc">Dialect 기반 통신 체계를 활용한 차세대 네트워크 보안 시스템입니다.</p>
+              <ul class="solution-detail__features">
+                <li>Dialect 기반 제로 트러스트 구현</li>
+                <li>IoT 환경 네트워크 보안</li>
+                <li>커널 레벨 네트워킹 보안</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>CC-BOX - Confidential Computing Platform</span>
+            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content__inner">
+              <p class="solution-detail__desc">연산 중인 데이터까지 안전하게 보호하는 기밀성 보장 보안 플랫폼입니다.</p>
+              <ul class="solution-detail__features">
+                <li>연산 중 데이터 보호</li>
+                <li>금융/의료 규제 준수</li>
+                <li>지적 재산(IP) 보호</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>CC-SBOM - Confidential Computing SBOM</span>
+            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content__inner">
+              <p class="solution-detail__desc">CC-BOX와 연계하여 SBOM 생성을 지원하는 보안 솔루션입니다.</p>
+              <ul class="solution-detail__features">
+                <li>기밀정보 유출 방지</li>
+                <li>실시간 취약점 관리</li>
+                <li>규제 분야 특화</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>Outerstellar - HW Safety Monitor</span>
+            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content__inner">
+              <p class="solution-detail__desc">하드웨어 기반 명령어 흐름 모니터링으로 시스템 무결성을 보장합니다.</p>
+              <ul class="solution-detail__features">
+                <li>하드웨어 수준 명령어 흐름 모니터링</li>
+                <li>OS 커널 무결성 검증</li>
+                <li>ACM CCS 검증 기술 기반</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Achievements ===== -->
+  <section class="section section--alt" id="achievements">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">성과 및 검증</h2>
+        <p class="section__subtitle">기술력으로 증명하는 신뢰</p>
+      </div>
+      <div class="achievements__stats fade-up">
+        <div class="stat-card">
+          <div class="stat-card__number">5+</div>
+          <div class="stat-card__label">특허 및 지식재산권</div>
+          <p class="stat-card__detail">DPF 관련 국내특허 등<br>다수 핵심 기술 특허 보유</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">10+</div>
+          <div class="stat-card__label">주요 연구/사업 프로젝트</div>
+          <p class="stat-card__detail">국가 과제 및<br>산학 협력 프로젝트 수행</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">15+</div>
+          <div class="stat-card__label">논문 및 학회 실적</div>
+          <p class="stat-card__detail">ACM CCS, Elsevier 등<br>탑티어 학술 성과</p>
+        </div>
+      </div>
+      <div style="text-align: center;" class="fade-up">
+        <div class="about__badges">
+          <span class="badge">ACM CCS 논문 게재</span>
+          <span class="badge">Elsevier Knowledge-based Systems 게재</span>
+          <span class="badge">Whitehat 해킹대회 우승</span>
+          <span class="badge">SECCON 국제 해킹대회 준우승</span>
+          <span class="badge">BoB Top10 다수 배출</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Team ===== -->
+  <section class="section" id="team">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">연구진</h2>
+        <p class="section__subtitle">대한민국 최고의 보안 전문가</p>
+      </div>
+
+      <!-- CEO -->
+      <div class="team__ceo fade-up">
+        <img src="assets/images/ceo-photo.png" alt="강병훈 교수" class="team__ceo-photo">
+        <div>
+          <p class="team__ceo-label">대표 / CEO</p>
+          <h3 class="team__ceo-name">강병훈 Ph.D</h3>
+          <ul class="team__ceo-credentials">
+            <li>사이시큐연구소 대표</li>
+            <li>KAIST 전산학부 정교수</li>
+            <li>정보보호대학원 책임교수 역임</li>
+            <li>금융감독자문위원회 디지털 IT분과 위원장</li>
+            <li>CSRC 상임고문</li>
+            <li>UC Berkeley CS Ph.D.</li>
+          </ul>
+          <div class="team__ceo-fields">
+            <span class="badge">시스템 보안</span>
+            <span class="badge">신뢰 실행 환경</span>
+            <span class="badge">AI 플랫폼 방어</span>
+            <span class="badge">하드웨어 기반 보안</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Researchers -->
+      <div class="team__grid fade-up">
+        <div class="team-card">
+          <div class="team-card__avatar">R1</div>
+          <p class="team-card__degree">KAIST 정보보호대학원 박사</p>
+          <p class="team-card__field">하드웨어 기반 보안 모니터, AI 입력 난독화, GPU 메모리 보안</p>
+          <span class="team-card__highlight">ACM CCS "Interstellar" 게재</span>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">R2</div>
+          <p class="team-card__degree">KAIST 정보보호대학원 박사과정</p>
+          <p class="team-card__field">Confidential AI 시스템, AI 적대적 공격 및 방어, 프라이버시 보안</p>
+          <span class="team-card__highlight">Elsevier AI 저널 논문 게재</span>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">R3</div>
+          <p class="team-card__degree">KAIST 정보보호대학원 박사과정</p>
+          <p class="team-card__field">SW 기반 attestation, 정형 검증, SBOM 연구</p>
+          <span class="team-card__highlight">Whitehat 우승 / SECCON 준우승</span>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">R4</div>
+          <p class="team-card__degree">KAIST 정보보호대학원 박사과정</p>
+          <p class="team-card__field">Dialect Perimeter Filter(DPF), 원격 메모리 시스템 보안</p>
+          <span class="team-card__highlight">DPF 국내특허 보유</span>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">R5</div>
+          <p class="team-card__degree">KAIST 정보보호대학원 박사과정</p>
+          <p class="team-card__field">AI Agent Safety, Adversarial Attack, Trusted Privacy Filter</p>
+          <span class="team-card__highlight">AI 에이전트 보안 연구</span>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">R6</div>
+          <p class="team-card__degree">KAIST 정보보호대학원 석사</p>
+          <p class="team-card__field">AI 시스템 프라이버시, 시스템 API 보안, SBOM 설계</p>
+          <span class="team-card__highlight">SBOM 보안 연구</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">문의하기</h2>
+        <p class="section__subtitle">보안 솔루션에 대해 궁금한 점이 있으시면 연락해 주세요</p>
+      </div>
+      <div class="contact-grid fade-up">
+        <div class="contact-info">
+          <div class="contact-info__item">
+            <div class="contact-info__icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <p class="contact-info__label">전화</p>
+              <p class="contact-info__value">042-862-2894</p>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__icon"><i class="fa-solid fa-fax"></i></div>
+            <div>
+              <p class="contact-info__label">팩스</p>
+              <p class="contact-info__value">042-367-0852</p>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <p class="contact-info__label">이메일</p>
+              <p class="contact-info__value"><a href="mailto:contact@cyseculab.com">contact@cyseculab.com</a></p>
+            </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <p class="contact-info__label">주소</p>
+              <p class="contact-info__value">대전광역시 유성구 대학로 291, KAIST</p>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" placeholder="홍길동" required>
+          </div>
+          <div class="form-group">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" placeholder="example@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">문의 내용</label>
+            <textarea id="message" name="message" placeholder="문의하실 내용을 입력해 주세요." required></textarea>
+          </div>
+          <button type="submit" class="btn btn--dark" style="width: 100%;">
+            <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i>문의 보내기
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__logo">사이시큐연구소 | CySecuLab</p>
+      <p class="footer__text">연결된 모든 사이버 공간을 안전하게 보호하는 시스템 보안 연구소</p>
+      <p class="footer__text">대전광역시 유성구 대학로 291, KAIST</p>
+      <p class="footer__copyright">&copy; 2025 주식회사 사이시큐연구소. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
