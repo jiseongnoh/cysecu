@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CC-SBOM - Confidential Computing SBOM | 사이시큐연구소</title>
+  <meta name="description" content="CC-BOX 안전 실행 환경과 연계하여 SBOM을 안전하게 생성하고 취약점을 관리하는 CC-SBOM">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../ppt-style.css">
+  <style>
+    .sol-hero {
+      position: relative;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #001642 0%, #00246C 40%, #003D96 70%, #0088EE 100%);
+      color: #fff;
+      padding-top: 72px;
+    }
+    .sol-hero__content {
+      position: relative;
+      z-index: 1;
+      padding: 60px 24px;
+    }
+    .sol-hero__label {
+      display: inline-block;
+      background: rgba(137,204,255,0.2);
+      color: #89CCFF;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .sol-hero__title {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .sol-hero__subtitle {
+      font-size: 18px;
+      opacity: 0.85;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--card-gap);
+    }
+    .feature-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--accent);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .feature-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(0,136,238,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .feature-card__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .feature-card__desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .usecase-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--card-gap);
+    }
+    .usecase-item {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .usecase-item__icon {
+      font-size: 36px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .usecase-item__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .usecase-item__desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .sol-cta {
+      background: linear-gradient(135deg, #00246C, #0088EE);
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .sol-cta__title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .sol-cta__desc {
+      font-size: 18px;
+      opacity: 0.85;
+      margin-bottom: 36px;
+    }
+    .solution-image-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      background: var(--bg-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+    }
+    .solution-image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .stakeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--card-gap);
+      margin-top: 48px;
+    }
+    .stakeholder-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      border-left: 6px solid var(--accent);
+    }
+    .stakeholder-card__role {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .stakeholder-card__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+    .stakeholder-card__list {
+      list-style: none;
+    }
+    .stakeholder-card__list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .stakeholder-card__list li:last-child {
+      border-bottom: none;
+    }
+    .stakeholder-card__list li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: var(--accent);
+      font-size: 12px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+    .sbom-explain {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      border-left: 6px solid var(--accent);
+      margin-top: 40px;
+    }
+    .sbom-explain__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .sbom-explain__desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    @media (max-width: 768px) {
+      .sol-hero__title { font-size: 28px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .usecase-list { grid-template-columns: 1fr; }
+      .stakeholder-grid { grid-template-columns: 1fr; }
+      .overview-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../ppt.html" class="nav__logo">
+        <img src="../assets/images/logo.png" alt="CySecuLab">
+        <span class="nav__logo-text">사이시큐연구소</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="../ppt.html#about">소개</a></li>
+        <li><a href="../ppt.html#solutions">솔루션</a></li>
+        <li><a href="../ppt.html#achievements">성과</a></li>
+        <li><a href="../ppt.html#team">연구진</a></li>
+        <li><a href="../ppt.html#contact">문의</a></li>
+        <li><a href="../ppt.html#solutions" style="color: #89CCFF; font-weight: 600;">모든 솔루션</a></li>
+      </ul>
+      <button class="nav__mobile-toggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="sol-hero">
+    <div class="sol-hero__content">
+      <div class="sol-hero__label">CC-SBOM</div>
+      <h1 class="sol-hero__title">Confidential Computing SBOM</h1>
+      <p class="sol-hero__subtitle">CC-BOX 안전 실행 환경과 연계하여 소프트웨어 구성 명세서를 안전하게 생성하고 취약점을 실시간 관리하는 솔루션</p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">CC-SBOM이란 무엇인가?</h2>
+        <p class="section__subtitle">소프트웨어 공급망 보안과 기밀성을 동시에 달성</p>
+      </div>
+      <div class="overview-grid fade-up" style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;">
+        <div>
+          <span class="about__label">Confidential Computing SBOM</span>
+          <p class="about__text" style="text-align: left; margin-top: 16px;">
+            SBOM(Software Bill of Materials)은 소프트웨어를 구성하는 모든 컴포넌트 목록으로, 취약점 관리와
+            공급망 보안의 핵심입니다. 그러나 SBOM 생성을 위해 소스코드나 바이너리를 외부 서비스에 제공하면
+            기밀 정보가 유출될 수 있습니다.
+          </p>
+          <p class="about__text" style="text-align: left;">
+            CC-SBOM은 CC-BOX의 신뢰 실행 환경(TEE)에서 SBOM을 생성하여 사용자의 소스코드와 영업비밀을
+            노출하지 않고도 정확한 SBOM과 실시간 취약점 정보를 제공합니다.
+          </p>
+          <div class="about__badges" style="justify-content: flex-start;">
+            <span class="badge">SBOM</span>
+            <span class="badge">Supply Chain Security</span>
+            <span class="badge">Vulnerability Management</span>
+            <span class="badge">TEE 기반 분석</span>
+          </div>
+        </div>
+        <div class="solution-image-wrap">
+          <img src="../assets/images/solution-ccsbom.png" alt="CC-SBOM 아키텍처">
+        </div>
+      </div>
+
+      <div class="sbom-explain fade-up">
+        <h3 class="sbom-explain__title"><i class="fa-solid fa-file-code" style="color: var(--accent); margin-right: 10px;"></i>SBOM(Software Bill of Materials)이란?</h3>
+        <p class="sbom-explain__desc">
+          SBOM은 소프트웨어에 포함된 모든 오픈소스, 서드파티 라이브러리, 내부 컴포넌트의 목록입니다.
+          미국 행정명령(EO 14028), EU CRA 등 주요 국가와 지역에서 SBOM 제출을 의무화하고 있으며,
+          Log4Shell 같은 공급망 취약점 사태로 인해 SBOM의 중요성이 급부상하고 있습니다.
+          CC-SBOM은 이러한 SBOM을 소스코드 노출 없이 안전하게 생성합니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">핵심 기능</h2>
+        <p class="section__subtitle">안전한 SBOM 관리를 위한 4대 핵심 역량</p>
+      </div>
+      <div class="feature-grid fade-up">
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-user-secret"></i></div>
+          <h3 class="feature-card__title">사용자 기밀정보 유출 방지</h3>
+          <p class="feature-card__desc">SBOM 분석 시 소스코드, 바이너리, 영업비밀 등 기밀 정보를 CC-BOX 신뢰 실행 환경(TEE)에서 처리하여 서비스 제공자도 접근할 수 없도록 완전히 보호합니다.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-bell"></i></div>
+          <h3 class="feature-card__title">실시간 취약점 관리 서비스</h3>
+          <p class="feature-card__desc">생성된 SBOM을 CVE, NVD 등 취약점 데이터베이스와 실시간으로 대조하여 새로운 취약점 발견 시 즉시 알림을 제공합니다. Log4Shell 같은 제로데이 공격에도 신속하게 대응합니다.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-code-branch"></i></div>
+          <h3 class="feature-card__title">SW 자산 및 IP 보호</h3>
+          <p class="feature-card__desc">클라우드 또는 외부 서버에서 SBOM 분석 서비스를 이용할 때 소프트웨어 자산과 지적재산이 서버 운영자에게 노출되지 않도록 CC-BOX TEE로 분석 전 과정을 보호합니다.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-industry"></i></div>
+          <h3 class="feature-card__title">규제 분야 특화 지원</h3>
+          <p class="feature-card__desc">의료기기 SW(IEC 62304), 금융 시스템, 자동차 OEM(UNECE WP.29), 산업 제어 시스템(IEC 62443) 등 SBOM 의무화가 진행 중인 규제 산업 분야에 특화된 SBOM 형식과 보고서를 제공합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stakeholder Protection -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">모든 이해관계자를 보호합니다</h2>
+        <p class="section__subtitle">CC-SBOM은 SBOM 생태계의 모든 주체를 동시에 보호합니다</p>
+      </div>
+      <div class="stakeholder-grid fade-up">
+        <div class="stakeholder-card">
+          <div class="stakeholder-card__role">사용자 보호</div>
+          <h3 class="stakeholder-card__title">소프트웨어 사용 기업</h3>
+          <ul class="stakeholder-card__list">
+            <li>도입 소프트웨어의 취약 컴포넌트 실시간 파악</li>
+            <li>공급망 공격에 대한 사전 대응 가능</li>
+            <li>SBOM 기반 보안 감사 및 규제 대응 자동화</li>
+            <li>내부 소프트웨어 자산 현황 투명하게 관리</li>
+          </ul>
+        </div>
+        <div class="stakeholder-card">
+          <div class="stakeholder-card__role">제공자 보호</div>
+          <h3 class="stakeholder-card__title">소프트웨어 개발·공급사</h3>
+          <ul class="stakeholder-card__list">
+            <li>소스코드 노출 없이 SBOM 생성 및 제공</li>
+            <li>소프트웨어 구성에 대한 신뢰성 입증</li>
+            <li>고객사의 SBOM 요구사항에 안전하게 대응</li>
+            <li>지적재산 보호와 투명성 동시 달성</li>
+          </ul>
+        </div>
+        <div class="stakeholder-card">
+          <div class="stakeholder-card__role">취약점 DB 보호</div>
+          <h3 class="stakeholder-card__title">취약점 관리 서비스</h3>
+          <ul class="stakeholder-card__list">
+            <li>취약점 데이터베이스의 기밀성 유지</li>
+            <li>SBOM-CVE 매핑 정보의 무결성 보장</li>
+            <li>제로데이 취약점 정보의 안전한 배포</li>
+            <li>감사 가능한 취약점 분석 결과 제공</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">적용 분야</h2>
+        <p class="section__subtitle">SBOM 의무화가 진행 중인 주요 규제 산업 분야</p>
+      </div>
+      <div class="usecase-list fade-up">
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-heartbeat"></i></div>
+          <h3 class="usecase-item__title">의료기기 소프트웨어</h3>
+          <p class="usecase-item__desc">FDA, IEC 62304 기준 의료기기 SW의 SBOM 의무 제출 요구사항을 소스코드 노출 없이 충족</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-coins"></i></div>
+          <h3 class="usecase-item__title">금융 시스템</h3>
+          <p class="usecase-item__desc">금융감독원 및 국제 금융 규제의 소프트웨어 공급망 보안 요구사항을 준수하는 SBOM 관리 체계 구축</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-car-side"></i></div>
+          <h3 class="usecase-item__title">자동차 OEM</h3>
+          <p class="usecase-item__desc">UNECE WP.29, ISO/SAE 21434 기준 차량 SW의 사이버보안 관리를 위한 SBOM 생성 및 취약점 관리</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-gear"></i></div>
+          <h3 class="usecase-item__title">산업 제어 시스템</h3>
+          <p class="usecase-item__desc">IEC 62443 기준 OT/ICS 환경의 소프트웨어 컴포넌트 보안 관리를 위한 SBOM 체계 적용</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-cloud"></i></div>
+          <h3 class="usecase-item__title">클라우드 서비스</h3>
+          <p class="usecase-item__desc">EU CRA(Cyber Resilience Act) 등 클라우드 소프트웨어에 요구되는 SBOM 공개 의무를 기밀성을 유지하며 준수</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-landmark"></i></div>
+          <h3 class="usecase-item__title">공공·국방</h3>
+          <p class="usecase-item__desc">미국 행정명령(EO 14028) 등 정부 조달 소프트웨어에 요구되는 SBOM 제출 의무를 안전하게 이행</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sol-cta">
+    <div class="container">
+      <h2 class="sol-cta__title fade-up">CC-SBOM으로 공급망 보안을 강화하세요</h2>
+      <p class="sol-cta__desc fade-up">SBOM 의무화 대응과 소프트웨어 기밀정보 보호를 동시에 달성하는 방법을 안내해 드립니다.</p>
+      <div class="fade-up">
+        <a href="../ppt.html#contact" class="btn btn--secondary">지금 문의하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__logo">사이시큐연구소 | CySecuLab</p>
+      <p class="footer__text">연결된 모든 사이버 공간을 안전하게 보호하는 시스템 보안 연구소</p>
+      <p class="footer__text">대전광역시 유성구 대학로 291, KAIST</p>
+      <p class="footer__copyright">&copy; 2023 주식회사 사이시큐연구소. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

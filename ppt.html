@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>사이시큐연구소 | CySecuLab - 연결된 모든 사이버 공간을 안전하게</title>
+  <title>사이시큐연구소 | CySecuLab - PPT 스타일</title>
   <meta name="description" content="KAIST 정보보호대학원 기반 시스템 보안 연구소. Confidential AI, Hardware Security, 네트워크 보안 솔루션을 제공합니다.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ppt-style.css">
 </head>
 <body>
 
@@ -149,8 +150,6 @@
         <h2 class="section__title">보안 솔루션</h2>
         <p class="section__subtitle">엔드 디바이스부터 클라우드까지, 모든 계층을 보호합니다</p>
       </div>
-
-      <!-- Desktop Tabs -->
       <div class="solutions__tabs fade-up">
         <button class="solutions__tab active" data-target="sol-tsa">TSA</button>
         <button class="solutions__tab" data-target="sol-tpa">TPA</button>
@@ -159,9 +158,7 @@
         <button class="solutions__tab" data-target="sol-ccsbom">CC-SBOM</button>
         <button class="solutions__tab" data-target="sol-outerstellar">Outerstellar</button>
       </div>
-
       <div class="solutions__panels">
-        <!-- TSA -->
         <div class="solutions__panel active" id="sol-tsa">
           <div class="solution-detail">
             <div class="solution-detail__info">
@@ -185,8 +182,6 @@
             </div>
           </div>
         </div>
-
-        <!-- TPA -->
         <div class="solutions__panel" id="sol-tpa">
           <div class="solution-detail">
             <div class="solution-detail__info">
@@ -210,8 +205,6 @@
             </div>
           </div>
         </div>
-
-        <!-- DPF -->
         <div class="solutions__panel" id="sol-dpf">
           <div class="solution-detail">
             <div class="solution-detail__info">
@@ -236,8 +229,6 @@
             </div>
           </div>
         </div>
-
-        <!-- CC-BOX -->
         <div class="solutions__panel" id="sol-ccbox">
           <div class="solution-detail">
             <div class="solution-detail__info">
@@ -262,8 +253,6 @@
             </div>
           </div>
         </div>
-
-        <!-- CC-SBOM -->
         <div class="solutions__panel" id="sol-ccsbom">
           <div class="solution-detail">
             <div class="solution-detail__info">
@@ -288,8 +277,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Outerstellar -->
         <div class="solutions__panel" id="sol-outerstellar">
           <div class="solution-detail">
             <div class="solution-detail__info">
@@ -318,103 +305,54 @@
       <!-- Mobile Accordion -->
       <div class="solutions__accordion">
         <div class="accordion-item">
-          <button class="accordion-trigger">
-            <span>TSA - Trusted Safety for Multiple AI Agents</span>
-            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-content__inner">
-              <p class="solution-detail__desc">다수의 AI 에이전트의 상호작용에서 발생하는 예상치 못한 위험을 조절하고 제어하는 통합형 프레임워크입니다.</p>
-              <ul class="solution-detail__features">
-                <li>통합형 멀티 에이전트 프레임워크 구축</li>
-                <li>에이전트 입출력 보호</li>
-                <li>에이전트 모델 보호 및 DRM 라이선스 관리</li>
-              </ul>
-            </div>
-          </div>
+          <button class="accordion-trigger"><span>TSA - Trusted Safety for Multiple AI Agents</span><i class="fa-solid fa-chevron-down accordion-trigger__icon"></i></button>
+          <div class="accordion-content"><div class="accordion-content__inner">
+            <p class="solution-detail__desc">다수의 AI 에이전트의 상호작용에서 발생하는 예상치 못한 위험을 조절하고 제어하는 통합형 프레임워크입니다.</p>
+            <ul class="solution-detail__features"><li>통합형 멀티 에이전트 프레임워크 구축</li><li>에이전트 입출력 보호</li><li>에이전트 모델 보호 및 DRM 라이선스 관리</li></ul>
+            <a href="solutions/tsa.html" class="btn btn--primary" style="margin-top: 12px; font-size: 14px; padding: 10px 20px;">자세히 보기</a>
+          </div></div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-trigger">
-            <span>TPA - Trusted Privacy Filter Agent</span>
-            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-content__inner">
-              <p class="solution-detail__desc">AI 서비스 이용 시 사용자의 개인정보와 기밀정보를 가명화하여 안전하게 보호하는 프라이버시 필터 에이전트입니다.</p>
-              <ul class="solution-detail__features">
-                <li>PII 및 영업비밀 자동 탐지 및 가명화</li>
-                <li>AI 기반 맥락 분석 가명화</li>
-                <li>웹 브라우저 확장 프로그램 형태</li>
-              </ul>
-            </div>
-          </div>
+          <button class="accordion-trigger"><span>TPA - Trusted Privacy Filter Agent</span><i class="fa-solid fa-chevron-down accordion-trigger__icon"></i></button>
+          <div class="accordion-content"><div class="accordion-content__inner">
+            <p class="solution-detail__desc">AI 서비스 이용 시 사용자의 개인정보와 기밀정보를 가명화하여 안전하게 보호합니다.</p>
+            <ul class="solution-detail__features"><li>PII 및 영업비밀 자동 탐지 및 가명화</li><li>AI 기반 맥락 분석 가명화</li><li>웹 브라우저 확장 프로그램 형태</li></ul>
+            <a href="solutions/tpa.html" class="btn btn--primary" style="margin-top: 12px; font-size: 14px; padding: 10px 20px;">자세히 보기</a>
+          </div></div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-trigger">
-            <span>DPF - Dialect Perimeter Filter</span>
-            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-content__inner">
-              <p class="solution-detail__desc">Dialect 기반 통신 체계를 활용한 차세대 네트워크 보안 시스템입니다.</p>
-              <ul class="solution-detail__features">
-                <li>Dialect 기반 제로 트러스트 구현</li>
-                <li>IoT 환경 네트워크 보안</li>
-                <li>커널 레벨 네트워킹 보안</li>
-              </ul>
-            </div>
-          </div>
+          <button class="accordion-trigger"><span>DPF - Dialect Perimeter Filter</span><i class="fa-solid fa-chevron-down accordion-trigger__icon"></i></button>
+          <div class="accordion-content"><div class="accordion-content__inner">
+            <p class="solution-detail__desc">Dialect 기반 통신 체계를 활용한 차세대 네트워크 보안 시스템입니다.</p>
+            <ul class="solution-detail__features"><li>Dialect 기반 제로 트러스트 구현</li><li>IoT 환경 네트워크 보안</li><li>커널 레벨 네트워킹 보안</li></ul>
+            <a href="solutions/dpf.html" class="btn btn--primary" style="margin-top: 12px; font-size: 14px; padding: 10px 20px;">자세히 보기</a>
+          </div></div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-trigger">
-            <span>CC-BOX - Confidential Computing Platform</span>
-            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-content__inner">
-              <p class="solution-detail__desc">연산 중인 데이터까지 안전하게 보호하는 기밀성 보장 보안 플랫폼입니다.</p>
-              <ul class="solution-detail__features">
-                <li>연산 중 데이터 보호</li>
-                <li>금융/의료 규제 준수</li>
-                <li>지적 재산(IP) 보호</li>
-              </ul>
-            </div>
-          </div>
+          <button class="accordion-trigger"><span>CC-BOX - Confidential Computing Platform</span><i class="fa-solid fa-chevron-down accordion-trigger__icon"></i></button>
+          <div class="accordion-content"><div class="accordion-content__inner">
+            <p class="solution-detail__desc">연산 중인 데이터까지 안전하게 보호하는 기밀성 보장 보안 플랫폼입니다.</p>
+            <ul class="solution-detail__features"><li>연산 중 데이터 보호</li><li>금융/의료 규제 준수</li><li>지적 재산(IP) 보호</li></ul>
+            <a href="solutions/ccbox.html" class="btn btn--primary" style="margin-top: 12px; font-size: 14px; padding: 10px 20px;">자세히 보기</a>
+          </div></div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-trigger">
-            <span>CC-SBOM - Confidential Computing SBOM</span>
-            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-content__inner">
-              <p class="solution-detail__desc">CC-BOX와 연계하여 SBOM 생성을 지원하는 보안 솔루션입니다.</p>
-              <ul class="solution-detail__features">
-                <li>기밀정보 유출 방지</li>
-                <li>실시간 취약점 관리</li>
-                <li>규제 분야 특화</li>
-              </ul>
-            </div>
-          </div>
+          <button class="accordion-trigger"><span>CC-SBOM - Confidential Computing SBOM</span><i class="fa-solid fa-chevron-down accordion-trigger__icon"></i></button>
+          <div class="accordion-content"><div class="accordion-content__inner">
+            <p class="solution-detail__desc">CC-BOX와 연계하여 SBOM 생성을 지원하는 보안 솔루션입니다.</p>
+            <ul class="solution-detail__features"><li>기밀정보 유출 방지</li><li>실시간 취약점 관리</li><li>규제 분야 특화</li></ul>
+            <a href="solutions/ccsbom.html" class="btn btn--primary" style="margin-top: 12px; font-size: 14px; padding: 10px 20px;">자세히 보기</a>
+          </div></div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-trigger">
-            <span>Outerstellar - HW Safety Monitor</span>
-            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-content__inner">
-              <p class="solution-detail__desc">하드웨어 기반 명령어 흐름 모니터링으로 시스템 무결성을 보장합니다.</p>
-              <ul class="solution-detail__features">
-                <li>하드웨어 수준 명령어 흐름 모니터링</li>
-                <li>OS 커널 무결성 검증</li>
-                <li>ACM CCS 검증 기술 기반</li>
-              </ul>
-            </div>
-          </div>
+          <button class="accordion-trigger"><span>Outerstellar - HW Safety Monitor</span><i class="fa-solid fa-chevron-down accordion-trigger__icon"></i></button>
+          <div class="accordion-content"><div class="accordion-content__inner">
+            <p class="solution-detail__desc">하드웨어 기반 명령어 흐름 모니터링으로 시스템 무결성을 보장합니다.</p>
+            <ul class="solution-detail__features"><li>하드웨어 수준 명령어 흐름 모니터링</li><li>OS 커널 무결성 검증</li><li>ACM CCS 검증 기술 기반</li></ul>
+            <a href="solutions/outerstellar.html" class="btn btn--primary" style="margin-top: 12px; font-size: 14px; padding: 10px 20px;">자세히 보기</a>
+          </div></div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -461,8 +399,6 @@
         <h2 class="section__title">연구진</h2>
         <p class="section__subtitle">KAIST 정보보호대학원 출신 보안 전문 연구진</p>
       </div>
-
-      <!-- CEO -->
       <div class="team__ceo fade-up">
         <img src="assets/images/ceo-photo.png" alt="강병훈 교수" class="team__ceo-photo">
         <div>
@@ -484,8 +420,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Researchers -->
       <div class="team__grid fade-up">
         <div class="team-card">
           <div class="team-card__avatar">HW</div>
@@ -538,49 +472,26 @@
         <div class="contact-info">
           <div class="contact-info__item">
             <div class="contact-info__icon"><i class="fa-solid fa-phone"></i></div>
-            <div>
-              <p class="contact-info__label">전화</p>
-              <p class="contact-info__value">042-862-2894</p>
-            </div>
+            <div><p class="contact-info__label">전화</p><p class="contact-info__value">042-862-2894</p></div>
           </div>
           <div class="contact-info__item">
             <div class="contact-info__icon"><i class="fa-solid fa-fax"></i></div>
-            <div>
-              <p class="contact-info__label">팩스</p>
-              <p class="contact-info__value">042-367-0852</p>
-            </div>
+            <div><p class="contact-info__label">팩스</p><p class="contact-info__value">042-367-0852</p></div>
           </div>
           <div class="contact-info__item">
             <div class="contact-info__icon"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <p class="contact-info__label">이메일</p>
-              <p class="contact-info__value"><a href="mailto:contact@cyseculab.com">contact@cyseculab.com</a></p>
-            </div>
+            <div><p class="contact-info__label">이메일</p><p class="contact-info__value"><a href="mailto:contact@cyseculab.com">contact@cyseculab.com</a></p></div>
           </div>
           <div class="contact-info__item">
             <div class="contact-info__icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <p class="contact-info__label">주소</p>
-              <p class="contact-info__value">대전광역시 유성구 대학로 291, KAIST</p>
-            </div>
+            <div><p class="contact-info__label">주소</p><p class="contact-info__value">대전광역시 유성구 대학로 291, KAIST</p></div>
           </div>
         </div>
         <form class="contact-form" id="contactForm">
-          <div class="form-group">
-            <label for="name">이름</label>
-            <input type="text" id="name" name="name" placeholder="홍길동" required>
-          </div>
-          <div class="form-group">
-            <label for="email">이메일</label>
-            <input type="email" id="email" name="email" placeholder="example@company.com" required>
-          </div>
-          <div class="form-group">
-            <label for="message">문의 내용</label>
-            <textarea id="message" name="message" placeholder="문의하실 내용을 입력해 주세요." required></textarea>
-          </div>
-          <button type="submit" class="btn btn--dark" style="width: 100%;">
-            <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i>문의 보내기
-          </button>
+          <div class="form-group"><label for="name">이름</label><input type="text" id="name" name="name" placeholder="홍길동" required></div>
+          <div class="form-group"><label for="email">이메일</label><input type="email" id="email" name="email" placeholder="example@company.com" required></div>
+          <div class="form-group"><label for="message">문의 내용</label><textarea id="message" name="message" placeholder="문의하실 내용을 입력해 주세요." required></textarea></div>
+          <button type="submit" class="btn btn--dark" style="width: 100%;"><i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i>문의 보내기</button>
         </form>
       </div>
     </div>

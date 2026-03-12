@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CC-BOX - Confidential Computing Platform | 사이시큐연구소</title>
+  <meta name="description" content="저장 중인 데이터뿐 아니라 연산 중인 데이터까지 보호하는 기밀 컴퓨팅 플랫폼 CC-BOX">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../ppt-style.css">
+  <style>
+    .sol-hero {
+      position: relative;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #001642 0%, #00246C 40%, #003D96 70%, #0088EE 100%);
+      color: #fff;
+      padding-top: 72px;
+    }
+    .sol-hero__content {
+      position: relative;
+      z-index: 1;
+      padding: 60px 24px;
+    }
+    .sol-hero__label {
+      display: inline-block;
+      background: rgba(137,204,255,0.2);
+      color: #89CCFF;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .sol-hero__title {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .sol-hero__subtitle {
+      font-size: 18px;
+      opacity: 0.85;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--card-gap);
+    }
+    .feature-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--accent);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .feature-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(0,136,238,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .feature-card__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .feature-card__desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .usecase-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--card-gap);
+    }
+    .usecase-item {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .usecase-item__icon {
+      font-size: 36px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .usecase-item__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .usecase-item__desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .sol-cta {
+      background: linear-gradient(135deg, #00246C, #0088EE);
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .sol-cta__title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .sol-cta__desc {
+      font-size: 18px;
+      opacity: 0.85;
+      margin-bottom: 36px;
+    }
+    .solution-image-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      background: var(--bg-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+    }
+    .solution-image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--card-gap);
+      margin-top: 48px;
+    }
+    .benefit-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border-bottom: 4px solid var(--accent);
+    }
+    .benefit-card__icon {
+      font-size: 42px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .benefit-card__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .benefit-card__desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .data-lifecycle {
+      display: flex;
+      gap: var(--card-gap);
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .lifecycle-item {
+      flex: 1;
+      min-width: 200px;
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .lifecycle-item--active {
+      background: linear-gradient(135deg, #00246C, #0088EE);
+      color: #fff;
+    }
+    .lifecycle-item--active .lifecycle-item__title,
+    .lifecycle-item--active .lifecycle-item__desc {
+      color: #fff;
+    }
+    .lifecycle-item__state {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .lifecycle-item--active .lifecycle-item__state {
+      color: rgba(255,255,255,0.75);
+    }
+    .lifecycle-item__icon {
+      font-size: 32px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .lifecycle-item--active .lifecycle-item__icon {
+      color: #fff;
+    }
+    .lifecycle-item__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .lifecycle-item__desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+      .sol-hero__title { font-size: 28px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .usecase-list { grid-template-columns: 1fr; }
+      .benefit-grid { grid-template-columns: 1fr; }
+      .overview-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../ppt.html" class="nav__logo">
+        <img src="../assets/images/logo.png" alt="CySecuLab">
+        <span class="nav__logo-text">사이시큐연구소</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="../ppt.html#about">소개</a></li>
+        <li><a href="../ppt.html#solutions">솔루션</a></li>
+        <li><a href="../ppt.html#achievements">성과</a></li>
+        <li><a href="../ppt.html#team">연구진</a></li>
+        <li><a href="../ppt.html#contact">문의</a></li>
+        <li><a href="../ppt.html#solutions" style="color: #89CCFF; font-weight: 600;">모든 솔루션</a></li>
+      </ul>
+      <button class="nav__mobile-toggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="sol-hero">
+    <div class="sol-hero__content">
+      <div class="sol-hero__label">CC-BOX</div>
+      <h1 class="sol-hero__title">Confidential Computing Platform</h1>
+      <p class="sol-hero__subtitle">저장 중인 데이터뿐만 아니라 연산 중인 데이터까지 안전하게 보호하는 기밀 컴퓨팅 플랫폼</p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">CC-BOX란 무엇인가?</h2>
+        <p class="section__subtitle">연산 중인 데이터까지 보호하는 완전한 데이터 기밀성</p>
+      </div>
+      <div class="overview-grid fade-up" style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;">
+        <div>
+          <span class="about__label">Confidential Computing Platform</span>
+          <p class="about__text" style="text-align: left; margin-top: 16px;">
+            일반적인 보안 솔루션은 저장된 데이터(Data at Rest)와 전송 중인 데이터(Data in Transit)를 보호하지만,
+            연산 중인 데이터(Data in Use)는 메모리에 평문으로 노출됩니다.
+          </p>
+          <p class="about__text" style="text-align: left;">
+            CC-BOX는 신뢰 실행 환경(TEE, Trusted Execution Environment)을 활용하여 연산 과정에서도 데이터의
+            기밀성을 완벽하게 보장합니다. 클라우드 서버 운영자조차 처리 중인 데이터에 접근할 수 없습니다.
+          </p>
+          <div class="about__badges" style="justify-content: flex-start;">
+            <span class="badge">Confidential Computing</span>
+            <span class="badge">Data Privacy</span>
+            <span class="badge">Compliance</span>
+            <span class="badge">TEE</span>
+          </div>
+        </div>
+        <div class="solution-image-wrap">
+          <img src="../assets/images/solution-ccbox-1.png" alt="CC-BOX 아키텍처">
+        </div>
+      </div>
+
+      <!-- Data lifecycle -->
+      <div class="fade-up">
+        <h3 style="text-align: center; font-size: 22px; font-weight: 700; color: var(--primary); margin-top: 56px; margin-bottom: 8px;">데이터 전주기 보호</h3>
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 0;">CC-BOX는 기존 솔루션이 놓치는 연산 중 단계를 완전히 커버합니다</p>
+        <div class="data-lifecycle">
+          <div class="lifecycle-item">
+            <div class="lifecycle-item__state">Data at Rest</div>
+            <div class="lifecycle-item__icon"><i class="fa-solid fa-database"></i></div>
+            <div class="lifecycle-item__title">저장 중 보호</div>
+            <div class="lifecycle-item__desc">암호화 스토리지로 기존 솔루션이 커버</div>
+          </div>
+          <div class="lifecycle-item lifecycle-item--active">
+            <div class="lifecycle-item__state">Data in Use</div>
+            <div class="lifecycle-item__icon"><i class="fa-solid fa-microchip"></i></div>
+            <div class="lifecycle-item__title">연산 중 보호</div>
+            <div class="lifecycle-item__desc">CC-BOX TEE로 연산 중에도 완전한 기밀성 보장</div>
+          </div>
+          <div class="lifecycle-item">
+            <div class="lifecycle-item__state">Data in Transit</div>
+            <div class="lifecycle-item__icon"><i class="fa-solid fa-arrows-left-right"></i></div>
+            <div class="lifecycle-item__title">전송 중 보호</div>
+            <div class="lifecycle-item__desc">TLS/SSL 암호화로 기존 솔루션이 커버</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">핵심 기능</h2>
+        <p class="section__subtitle">완전한 데이터 기밀성을 위한 4대 핵심 역량</p>
+      </div>
+      <div class="feature-grid fade-up">
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3 class="feature-card__title">연산 중 데이터 보호</h3>
+          <p class="feature-card__desc">신뢰 실행 환경(TEE) 기반으로 데이터가 메모리에서 연산되는 동안에도 완전한 기밀성을 보장합니다. 클라우드 사업자, 서버 관리자 등 누구도 처리 중인 데이터에 접근할 수 없습니다.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h3 class="feature-card__title">금융·의료 규제 준수</h3>
+          <p class="feature-card__desc">GDPR, HIPAA, 금융감독원 규정 등 데이터 보호 규제에서 요구하는 수준의 기밀성을 기술적으로 보장합니다. 규제 준수를 위한 감사 로그와 증명서를 자동으로 생성합니다.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3 class="feature-card__title">지적재산(IP) 보호</h3>
+          <p class="feature-card__desc">AI 모델, 알고리즘, 소스코드 등 핵심 지적재산을 클라우드나 서드파티 플랫폼에서 실행할 때 해당 플랫폼 운영자로부터도 IP를 안전하게 보호합니다.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+          <h3 class="feature-card__title">간편한 적용</h3>
+          <p class="feature-card__desc">기존 애플리케이션 코드 변경을 최소화하면서 CC-BOX를 적용할 수 있어 도입 부담이 낮습니다. 다양한 클라우드 환경 및 온프레미스 시스템을 폭넓게 지원합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">CC-BOX가 제공하는 가치</h2>
+        <p class="section__subtitle">기밀 컴퓨팅이 조직에 가져다주는 핵심 혜택</p>
+      </div>
+      <div class="benefit-grid fade-up">
+        <div class="benefit-card">
+          <div class="benefit-card__icon"><i class="fa-solid fa-check-double"></i></div>
+          <h3 class="benefit-card__title">규제 준수</h3>
+          <p class="benefit-card__desc">GDPR, HIPAA, PCI-DSS 등 국내외 데이터 보호 규제를 기술적으로 충족합니다. 규제 기관에 제출 가능한 기밀성 증명서를 발급하여 감사 대응을 간소화합니다.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__icon"><i class="fa-solid fa-shield-check"></i></div>
+          <h3 class="benefit-card__title">고신뢰 민감데이터 보호</h3>
+          <p class="benefit-card__desc">환자 의료 기록, 금융 거래 내역, 개인정보 등 민감도가 높은 데이터를 처리할 때도 내부자 위협, 클라우드 사업자 접근, 해킹 시도로부터 완벽하게 보호합니다.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-card__icon"><i class="fa-solid fa-copyright"></i></div>
+          <h3 class="benefit-card__title">지적 재산(IP) 보호</h3>
+          <p class="benefit-card__desc">독자적으로 개발한 AI 모델, 핵심 알고리즘, 비즈니스 로직을 클라우드 환경에서 실행할 때 클라우드 사업자나 공동 사업자로부터도 IP가 노출되지 않도록 보장합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">적용 분야</h2>
+        <p class="section__subtitle">CC-BOX가 데이터 기밀성을 보장하는 주요 분야</p>
+      </div>
+      <div class="usecase-list fade-up">
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-university"></i></div>
+          <h3 class="usecase-item__title">금융 서비스</h3>
+          <p class="usecase-item__desc">신용평가 모델, 사기 탐지 알고리즘 등 핵심 금융 데이터를 클라우드에서 안전하게 처리</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-hospital"></i></div>
+          <h3 class="usecase-item__title">의료·헬스케어</h3>
+          <p class="usecase-item__desc">환자 유전 정보, 진단 데이터 등 민감한 의료 정보를 처리하는 AI 시스템에 기밀성 보장</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-robot"></i></div>
+          <h3 class="usecase-item__title">AI 모델 서비스</h3>
+          <p class="usecase-item__desc">독자 개발 AI 모델을 외부 클라우드에서 서비스할 때 모델 가중치와 구조를 클라우드 사업자로부터 보호</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-handshake"></i></div>
+          <h3 class="usecase-item__title">멀티파티 컴퓨팅</h3>
+          <p class="usecase-item__desc">여러 기업이 각자의 기밀 데이터를 공개하지 않고 공동으로 분석·활용하는 프라이버시 보존 협업</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-landmark"></i></div>
+          <h3 class="usecase-item__title">공공·정부 시스템</h3>
+          <p class="usecase-item__desc">주민 개인정보, 행정 데이터 등을 클라우드에서 처리할 때 강력한 기밀성 보장으로 공공 서비스 현대화</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-flask"></i></div>
+          <h3 class="usecase-item__title">연구·개발</h3>
+          <p class="usecase-item__desc">신약 개발, 소재 연구 등 고부가가치 연구 데이터를 클라우드 컴퓨팅 자원으로 처리할 때 연구 결과 보호</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sol-cta">
+    <div class="container">
+      <h2 class="sol-cta__title fade-up">CC-BOX로 데이터를 완전하게 보호하세요</h2>
+      <p class="sol-cta__desc fade-up">연산 중인 데이터까지 보호하는 기밀 컴퓨팅 솔루션 도입에 대해 전문 연구진이 안내해 드립니다.</p>
+      <div class="fade-up">
+        <a href="../ppt.html#contact" class="btn btn--secondary">지금 문의하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__logo">사이시큐연구소 | CySecuLab</p>
+      <p class="footer__text">연결된 모든 사이버 공간을 안전하게 보호하는 시스템 보안 연구소</p>
+      <p class="footer__text">대전광역시 유성구 대학로 291, KAIST</p>
+      <p class="footer__copyright">&copy; 2023 주식회사 사이시큐연구소. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+/* ============================================
+   CySecuLab - PPT Original Color Theme
+   Deep Navy + Blue accent
+   ============================================ */
+
+:root {
+  --primary: #00246C;
+  --primary-light: #003D96;
+  --primary-medium: #00438F;
+  --accent: #0088EE;
+  --accent-hover: #006FCB;
+  --accent-light: #89CCFF;
+  --accent-purple: #7B90F9;
+  --bg: #FFFFFF;
+  --bg-alt: #F0F4FA;
+  --bg-dark: #001642;
+  --text: #00246C;
+  --text-secondary: #4A5A7A;
+  --border: #D0DAEA;
+  --success: #0088EE;
+  --shadow: 0 2px 12px rgba(0,36,108,0.08);
+  --shadow-hover: 0 4px 20px rgba(0,36,108,0.14);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --container: 1200px;
+  --section-gap: 100px;
+  --block-gap: 48px;
+  --card-gap: 24px;
+  --transition: 0.3s ease;
+}
+
+/* --- Hero Override --- */
+.hero {
+  background: linear-gradient(135deg, #001642 0%, #00246C 40%, #003D96 70%, #0088EE 100%);
+}
+
+/* --- Nav Override --- */
+.nav {
+  background: rgba(0,36,108,0.97);
+  border-bottom: 1px solid rgba(0,136,238,0.2);
+}
+.nav--scrolled {
+  box-shadow: 0 2px 20px rgba(0,36,108,0.2);
+}
+.nav__logo-text {
+  color: #fff;
+}
+.nav__links a {
+  color: rgba(255,255,255,0.85);
+}
+.nav__links a:hover,
+.nav__links a.active {
+  color: var(--accent-light);
+}
+.nav__links a::after {
+  background: var(--accent-light);
+}
+.nav__mobile-toggle span {
+  background: #fff;
+}
+
+/* --- Section Title Override --- */
+.section__title {
+  color: var(--primary);
+}
+
+/* --- Problem Card Override --- */
+.problem-card {
+  border-left-color: var(--accent);
+}
+.problem-card__title {
+  color: var(--primary);
+}
+.problem-card__list li::before {
+  color: var(--accent);
+}
+
+/* --- About Override --- */
+.about__label {
+  background: rgba(0,136,238,0.1);
+  color: var(--accent);
+}
+.badge {
+  background: rgba(0,36,108,0.08);
+  color: var(--primary);
+}
+
+/* --- Capability Card Override --- */
+.cap-card__icon {
+  background: rgba(0,136,238,0.1);
+  color: var(--accent);
+}
+.cap-card__title {
+  color: var(--primary);
+}
+
+/* --- Solution Tab Override --- */
+.solutions__tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--accent);
+}
+.solution-detail__name {
+  color: var(--accent);
+}
+.solution-detail__title {
+  color: var(--primary);
+}
+.solution-detail__features li::before {
+  color: var(--accent);
+}
+
+/* --- Stat Card Override --- */
+.stat-card__number {
+  color: var(--accent);
+}
+.stat-card__label {
+  color: var(--primary);
+}
+
+/* --- Team Override --- */
+.team__ceo {
+  border: 1px solid var(--border);
+}
+.team__ceo-label {
+  color: var(--accent);
+}
+.team__ceo-name {
+  color: var(--primary);
+}
+.team-card__avatar {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+.team-card__degree {
+  color: var(--accent);
+}
+.team-card__highlight {
+  background: rgba(0,136,238,0.08);
+  color: var(--primary);
+}
+
+/* --- Contact Override --- */
+.contact-info__icon {
+  background: rgba(0,136,238,0.1);
+  color: var(--accent);
+}
+.contact-info__value {
+  color: var(--primary);
+}
+.contact-info__value a {
+  color: var(--accent);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+.btn--dark {
+  background: var(--primary);
+}
+.btn--dark:hover {
+  background: var(--primary-light);
+}
+.btn--primary {
+  background: var(--accent);
+}
+.btn--primary:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 12px rgba(0,136,238,0.3);
+}
+
+/* --- Footer Override --- */
+.footer {
+  background: var(--bg-dark);
+}
+
+/* --- Alt section bg --- */
+.section--alt {
+  background: var(--bg-alt);
+}
+
+/* --- Accent transitions --- */
+a {
+  color: var(--accent);
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* --- Mobile nav override --- */
+@media (max-width: 768px) {
+  .nav__links {
+    background: var(--primary);
+    border-bottom: 1px solid rgba(0,136,238,0.2);
+  }
+  .nav__links a {
+    color: rgba(255,255,255,0.9);
+  }
+}

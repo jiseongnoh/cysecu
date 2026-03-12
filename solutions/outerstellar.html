@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outerstellar - Hardware-based Instruction-flow Safety Monitor | 사이시큐연구소</title>
+  <meta name="description" content="하드웨어 기반으로 명령어 흐름을 모니터링하여 시스템 무결성을 보장하는 Outerstellar">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../ppt-style.css">
+  <style>
+    .sol-hero {
+      position: relative;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #001642 0%, #00246C 40%, #003D96 70%, #0088EE 100%);
+      color: #fff;
+      padding-top: 72px;
+    }
+    .sol-hero__content {
+      position: relative;
+      z-index: 1;
+      padding: 60px 24px;
+    }
+    .sol-hero__label {
+      display: inline-block;
+      background: rgba(137,204,255,0.2);
+      color: #89CCFF;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .sol-hero__title {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .sol-hero__subtitle {
+      font-size: 18px;
+      opacity: 0.85;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--card-gap);
+    }
+    .feature-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--accent);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .feature-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(0,136,238,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .feature-card__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .feature-card__desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .usecase-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--card-gap);
+    }
+    .usecase-item {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .usecase-item__icon {
+      font-size: 36px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .usecase-item__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .usecase-item__desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .sol-cta {
+      background: linear-gradient(135deg, #00246C, #0088EE);
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .sol-cta__title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .sol-cta__desc {
+      font-size: 18px;
+      opacity: 0.85;
+      margin-bottom: 36px;
+    }
+    .solution-image-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      background: var(--bg-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+    }
+    .solution-image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .research-badge {
+      background: linear-gradient(135deg, #00246C, #003D96);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 40px;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .research-badge__icon {
+      font-size: 56px;
+      color: #89CCFF;
+      flex-shrink: 0;
+    }
+    .research-badge__content {}
+    .research-badge__label {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(137,204,255,0.9);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .research-badge__title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .research-badge__desc {
+      font-size: 15px;
+      opacity: 0.85;
+      line-height: 1.7;
+    }
+    .hw-vs-sw {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--card-gap);
+      margin-top: 48px;
+    }
+    .comparison-card {
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+    }
+    .comparison-card--sw {
+      background: var(--bg-alt);
+      border: 2px solid var(--border);
+    }
+    .comparison-card--hw {
+      background: linear-gradient(135deg, #00246C, #003D96);
+      color: #fff;
+    }
+    .comparison-card__label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .comparison-card--sw .comparison-card__label {
+      color: var(--text-secondary);
+    }
+    .comparison-card--hw .comparison-card__label {
+      color: #89CCFF;
+    }
+    .comparison-card__title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .comparison-card--sw .comparison-card__title {
+      color: var(--primary);
+    }
+    .comparison-card--hw .comparison-card__title {
+      color: #fff;
+    }
+    .comparison-list {
+      list-style: none;
+    }
+    .comparison-list li {
+      font-size: 14px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .comparison-card--sw .comparison-list li {
+      border-bottom-color: var(--border);
+      color: var(--text-secondary);
+    }
+    .comparison-card--sw .comparison-list li::before {
+      content: '\f00d';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: #e74c3c;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+    .comparison-card--hw .comparison-list li {
+      color: rgba(255,255,255,0.9);
+    }
+    .comparison-card--hw .comparison-list li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: #89CCFF;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+    .comparison-list li:last-child {
+      border-bottom: none;
+    }
+    @media (max-width: 768px) {
+      .sol-hero__title { font-size: 28px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .usecase-list { grid-template-columns: 1fr; }
+      .hw-vs-sw { grid-template-columns: 1fr; }
+      .overview-grid { grid-template-columns: 1fr !important; }
+      .research-badge { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../ppt.html" class="nav__logo">
+        <img src="../assets/images/logo.png" alt="CySecuLab">
+        <span class="nav__logo-text">사이시큐연구소</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="../ppt.html#about">소개</a></li>
+        <li><a href="../ppt.html#solutions">솔루션</a></li>
+        <li><a href="../ppt.html#achievements">성과</a></li>
+        <li><a href="../ppt.html#team">연구진</a></li>
+        <li><a href="../ppt.html#contact">문의</a></li>
+        <li><a href="../ppt.html#solutions" style="color: #89CCFF; font-weight: 600;">모든 솔루션</a></li>
+      </ul>
+      <button class="nav__mobile-toggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="sol-hero">
+    <div class="sol-hero__content">
+      <div class="sol-hero__label">Outerstellar</div>
+      <h1 class="sol-hero__title">Hardware-based<br>Instruction-flow Safety Monitor</h1>
+      <p class="sol-hero__subtitle">하드웨어 기반으로 시스템의 명령어 흐름을 모니터링하여 OS 커널 무결성을 실시간으로 보장하는 보안 솔루션</p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">Outerstellar란 무엇인가?</h2>
+        <p class="section__subtitle">소프트웨어로는 막을 수 없는 위협을 하드웨어로 차단</p>
+      </div>
+      <div class="overview-grid fade-up" style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;">
+        <div>
+          <span class="about__label">Hardware-based Instruction-flow Safety Monitor</span>
+          <p class="about__text" style="text-align: left; margin-top: 16px;">
+            루트킷, 커널 익스플로잇 등 OS 커널을 공격하는 고급 위협은 소프트웨어 기반 보안 솔루션으로는
+            탐지와 방어에 근본적인 한계가 있습니다. 공격자가 OS를 장악하면 소프트웨어 모니터 자체를 우회할 수 있기 때문입니다.
+          </p>
+          <p class="about__text" style="text-align: left;">
+            Outerstellar는 CPU 하드웨어 수준에서 명령어 흐름(Instruction Flow)을 모니터링하여 OS가
+            손상되거나 조작된 경우에도 무결성 위반을 즉각적으로 탐지합니다. ACM CCS에 게재된 Interstellar 연구를 기반으로 합니다.
+          </p>
+          <div class="about__badges" style="justify-content: flex-start;">
+            <span class="badge">Hardware Security</span>
+            <span class="badge">Integrity Monitor</span>
+            <span class="badge">커널 보안</span>
+            <span class="badge">ACM CCS 검증</span>
+          </div>
+        </div>
+        <div class="solution-image-wrap">
+          <img src="../assets/images/solution-outerstellar.png" alt="Outerstellar 아키텍처">
+        </div>
+      </div>
+
+      <!-- Research Background -->
+      <div class="research-badge fade-up">
+        <div class="research-badge__icon"><i class="fa-solid fa-award"></i></div>
+        <div class="research-badge__content">
+          <div class="research-badge__label">학술적 기반</div>
+          <div class="research-badge__title">ACM CCS "Interstellar" 연구 기반 기술</div>
+          <div class="research-badge__desc">
+            Outerstellar는 세계 최고 보안 학술대회 중 하나인 ACM CCS(Conference on Computer and Communications Security)에
+            게재된 "Interstellar" 연구 논문을 기반으로 합니다. 학계와 업계 양측에서 검증된 원천 기술로 구현되어
+            학문적 엄밀성과 실용적 효용성을 동시에 갖추고 있습니다.
+          </div>
+        </div>
+      </div>
+
+      <!-- HW vs SW Comparison -->
+      <div class="fade-up">
+        <h3 style="text-align: center; font-size: 22px; font-weight: 700; color: var(--primary); margin-top: 56px; margin-bottom: 8px;">왜 하드웨어 기반이어야 하는가</h3>
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 0;">소프트웨어 모니터의 한계를 하드웨어로 극복합니다</p>
+        <div class="hw-vs-sw">
+          <div class="comparison-card comparison-card--sw">
+            <div class="comparison-card__label">기존 방식</div>
+            <h3 class="comparison-card__title">소프트웨어 기반 모니터링</h3>
+            <ul class="comparison-list">
+              <li>OS가 손상되면 모니터도 함께 우회 가능</li>
+              <li>루트킷에 의해 모니터 자체가 비활성화될 수 있음</li>
+              <li>OS 커널 내부의 악성 코드 탐지에 한계</li>
+              <li>공격자가 모니터링 로직을 수정·삭제 가능</li>
+            </ul>
+          </div>
+          <div class="comparison-card comparison-card--hw">
+            <div class="comparison-card__label">Outerstellar</div>
+            <h3 class="comparison-card__title">하드웨어 기반 모니터링</h3>
+            <ul class="comparison-list">
+              <li>OS와 독립적인 하드웨어 계층에서 모니터링</li>
+              <li>소프트웨어로는 모니터를 조작·우회 불가</li>
+              <li>CPU 명령어 흐름을 하드웨어 수준에서 직접 검증</li>
+              <li>OS가 완전히 손상된 후에도 탐지 가능</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">핵심 기능</h2>
+        <p class="section__subtitle">하드웨어 수준 무결성 보장을 위한 4대 핵심 역량</p>
+      </div>
+      <div class="feature-grid fade-up">
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3 class="feature-card__title">하드웨어 수준 명령어 흐름 모니터링</h3>
+          <p class="feature-card__desc">CPU의 명령어 실행 흐름(Control Flow)을 하드웨어 수준에서 실시간으로 추적합니다. 정상적인 실행 경로에서 벗어나는 모든 이상 행위를 즉각적으로 탐지하고 차단합니다.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3 class="feature-card__title">OS 커널 무결성 실시간 검증</h3>
+          <p class="feature-card__desc">운영체제 커널의 코드 영역, 데이터 구조, 시스템 콜 테이블 등 핵심 영역의 무결성을 실시간으로 검증합니다. 루트킷, 커널 익스플로잇 등의 공격을 즉시 탐지합니다.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-lock"></i></div>
+          <h3 class="feature-card__title">소프트웨어 조작 불가능한 HW 보안</h3>
+          <p class="feature-card__desc">모니터링 시스템 자체가 하드웨어에 구현되어 있어 악성 소프트웨어나 공격자가 모니터링 기능을 비활성화하거나 우회하는 것이 원천적으로 불가능합니다.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon"><i class="fa-solid fa-trophy"></i></div>
+          <h3 class="feature-card__title">ACM CCS "Interstellar" 검증 기술</h3>
+          <p class="feature-card__desc">세계 최고 보안 학술대회 ACM CCS에 게재된 연구를 기반으로 학문적으로 엄밀하게 검증된 기술을 적용합니다. 이론적 안전성 증명과 실험적 검증을 모두 갖춘 신뢰할 수 있는 솔루션입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">적용 분야</h2>
+        <p class="section__subtitle">Outerstellar가 시스템 무결성을 보장하는 핵심 환경</p>
+      </div>
+      <div class="usecase-list fade-up">
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-server"></i></div>
+          <h3 class="usecase-item__title">클라우드 서버 인프라</h3>
+          <p class="usecase-item__desc">하이퍼바이저와 VM의 커널 무결성을 하드웨어 수준에서 실시간 검증하여 클라우드 인프라의 신뢰성 보장</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3 class="usecase-item__title">국방·사이버전 대응</h3>
+          <p class="usecase-item__desc">국가 수준의 사이버 공격(APT)에서도 핵심 시스템의 무결성을 보장하는 고신뢰 보안 기반 구축</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-industry"></i></div>
+          <h3 class="usecase-item__title">산업 제어 시스템</h3>
+          <p class="usecase-item__desc">발전소, 정수장 등 핵심 인프라의 제어 시스템이 사이버 공격으로 조작되지 않도록 하드웨어 수준에서 보호</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-car"></i></div>
+          <h3 class="usecase-item__title">자율주행·임베디드</h3>
+          <p class="usecase-item__desc">자율주행 차량, 드론 등 임베디드 시스템의 펌웨어 및 OS 무결성을 하드웨어로 보장하여 안전한 자율 운행 지원</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-coins"></i></div>
+          <h3 class="usecase-item__title">금융 핵심 시스템</h3>
+          <p class="usecase-item__desc">ATM, 결제 단말기, 은행 코어 시스템 등 금융 인프라의 OS 무결성을 검증하여 금융 사기 및 해킹 차단</p>
+        </div>
+        <div class="usecase-item">
+          <div class="usecase-item__icon"><i class="fa-solid fa-hospital"></i></div>
+          <h3 class="usecase-item__title">의료 장비</h3>
+          <p class="usecase-item__desc">생명 유지 장치, 수술 로봇 등 안전 중요 의료 장비의 소프트웨어 무결성을 하드웨어 수준에서 실시간 검증</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sol-cta">
+    <div class="container">
+      <h2 class="sol-cta__title fade-up">Outerstellar로 시스템의 근원적 보안을 확보하세요</h2>
+      <p class="sol-cta__desc fade-up">ACM CCS 검증 기술 기반의 하드웨어 무결성 모니터링 솔루션 도입에 대해 전문 연구진이 안내해 드립니다.</p>
+      <div class="fade-up">
+        <a href="../ppt.html#contact" class="btn btn--secondary">지금 문의하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__logo">사이시큐연구소 | CySecuLab</p>
+      <p class="footer__text">연결된 모든 사이버 공간을 안전하게 보호하는 시스템 보안 연구소</p>
+      <p class="footer__text">대전광역시 유성구 대학로 291, KAIST</p>
+      <p class="footer__copyright">&copy; 2023 주식회사 사이시큐연구소. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
