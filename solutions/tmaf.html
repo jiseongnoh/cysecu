@@ -142,9 +142,9 @@
       border-left: 4px solid var(--accent);
       transition: transform var(--transition), box-shadow var(--transition);
     }
-    .detect-card:nth-child(4),
-    .detect-card:nth-child(5) {
-      /* Center the last two cards in a 3-col grid */
+    /* Center last row (2 cards) in 3-col grid */
+    .detect-grid {
+      justify-content: center;
     }
     .detect-card:hover {
       transform: translateY(-4px);
@@ -679,7 +679,7 @@
             <li>에이전트 간 채널 무결성 검증</li>
           </ul>
         </div>
-        <div class="detect-card" style="grid-column: 1 / -1; max-width: calc(50% - 12px); margin: 0 auto;">
+        <div class="detect-card">
           <div class="detect-card__num">영역 05</div>
           <h3 class="detect-card__title">실행환경 이상탐지</h3>
           <ul class="detect-card__list">
