@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TMAF - Trusted Multi-Agent Framework | 사이시큐연구소</title>
+  <meta name="description" content="기업 멀티 에이전트 AI 시스템을 위한 통합 보안 플랫폼 TMAF — 입력 보호부터 기밀 실행환경까지 전주기 보안">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../ppt-style.css">
+  <style>
+    /* ---- Hero ---- */
+    .sol-hero {
+      position: relative;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #000d2e 0%, #001642 25%, #00246C 55%, #0055BB 80%, #0088EE 100%);
+      color: #fff;
+      padding-top: 72px;
+      overflow: hidden;
+    }
+    .sol-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 20% 50%, rgba(0,136,238,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 30%, rgba(0,180,216,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .sol-hero__content {
+      position: relative;
+      z-index: 1;
+      padding: 72px 24px;
+    }
+    .sol-hero__label {
+      display: inline-block;
+      background: rgba(137,204,255,0.2);
+      color: #89CCFF;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .sol-hero__title {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .sol-hero__fullname {
+      font-size: 22px;
+      font-weight: 500;
+      opacity: 0.75;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .sol-hero__subtitle {
+      font-size: 18px;
+      opacity: 0.88;
+      max-width: 660px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .sol-hero__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .sol-hero__badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ---- Feature / Detection grid ---- */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--card-gap);
+    }
+    .feature-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--accent);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .feature-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(0,136,238,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .feature-card__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .feature-card__desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ---- Detection 5-grid ---- */
+    .detect-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--card-gap);
+    }
+    .detect-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--accent);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .detect-card:nth-child(4),
+    .detect-card:nth-child(5) {
+      /* Center the last two cards in a 3-col grid */
+    }
+    .detect-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .detect-card__num {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .detect-card__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .detect-card__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .detect-card__list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding: 4px 0;
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.55;
+    }
+    .detect-card__list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+
+    /* ---- Problem cards (Section 1) ---- */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--card-gap);
+    }
+    .problem-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid #EF4444;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .problem-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    .problem-card__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(239,68,68,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #EF4444;
+      flex-shrink: 0;
+    }
+    .problem-card__body {}
+    .problem-card__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .problem-card__desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ---- Module (4-card) ---- */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--card-gap);
+    }
+    .module-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--accent);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+    .module-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .module-card__tag {
+      display: inline-block;
+      background: rgba(0,136,238,0.08);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+    .module-card__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(0,136,238,0.15), rgba(0,180,216,0.08));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .module-card__title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .module-card__subtitle {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .module-card__desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ---- Architecture pipeline ---- */
+    .arch-pipeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-width: 600px;
+      margin: 48px auto 0;
+    }
+    .arch-step {
+      width: 100%;
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 20px 32px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-left: 4px solid var(--accent);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .arch-step:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .arch-step__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0,136,238,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .arch-step__body { flex: 1; }
+    .arch-step__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .arch-step__desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+    .arch-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      color: var(--accent);
+      font-size: 20px;
+      opacity: 0.7;
+    }
+    .arch-step--highlight {
+      border-left-color: #0055BB;
+      background: linear-gradient(90deg, rgba(0,85,187,0.04) 0%, var(--bg) 100%);
+    }
+    .arch-step--highlight .arch-step__icon {
+      background: rgba(0,85,187,0.12);
+      color: #0055BB;
+    }
+
+    /* ---- Case studies ---- */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--card-gap);
+    }
+    .case-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--accent);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .case-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .case-card__partner {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .case-card__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      line-height: 1.35;
+    }
+    .case-card__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .case-card__list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding-left: 22px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .case-card__list li::before {
+      content: '\f058';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: var(--accent);
+      font-size: 13px;
+    }
+
+    /* ---- Differentiators ---- */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--card-gap);
+    }
+    .diff-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .diff-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    .diff-card__num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .diff-card__text {
+      font-size: 15px;
+      color: var(--primary);
+      font-weight: 600;
+      line-height: 1.6;
+      padding-top: 6px;
+    }
+
+    /* ---- Industry tags ---- */
+    .industry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .industry-tag {
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      color: var(--primary);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 50px;
+      box-shadow: var(--shadow);
+      transition: all var(--transition);
+      cursor: default;
+    }
+    .industry-tag:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* ---- CTA ---- */
+    .sol-cta {
+      background: linear-gradient(135deg, #00246C, #0088EE);
+      color: #fff;
+      text-align: center;
+      padding: 96px 24px;
+    }
+    .sol-cta__title {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .sol-cta__desc {
+      font-size: 18px;
+      opacity: 0.88;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ---- Bottom badges ---- */
+    .bottom-badges {
+      background: var(--bg-alt);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .bottom-badges__inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .bottom-badge {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 768px) {
+      .sol-hero__title { font-size: 32px; }
+      .sol-hero__fullname { font-size: 17px; }
+      .sol-hero__subtitle { font-size: 16px; }
+      .feature-grid,
+      .problem-grid,
+      .module-grid,
+      .case-grid,
+      .diff-grid { grid-template-columns: 1fr; }
+      .detect-grid { grid-template-columns: 1fr; }
+      .arch-pipeline { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="../ppt.html" class="nav__logo">
+        <img src="../assets/images/logo.png" alt="CySecuLab">
+        <span class="nav__logo-text">사이시큐연구소</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="../ppt.html#about">소개</a></li>
+        <li><a href="../ppt.html#solutions">솔루션</a></li>
+        <li><a href="../ppt.html#achievements">성과</a></li>
+        <li><a href="../ppt.html#team">연구진</a></li>
+        <li><a href="../ppt.html#contact">문의</a></li>
+        <li><a href="../ppt.html#solutions" style="color: #89CCFF; font-weight: 600;">모든 솔루션</a></li>
+      </ul>
+      <button class="nav__mobile-toggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="sol-hero">
+    <div class="sol-hero__content">
+      <div class="sol-hero__label">TMAF</div>
+      <h1 class="sol-hero__title">Trusted Multi-Agent Framework</h1>
+      <p class="sol-hero__fullname">기업 멀티 에이전트 AI 시스템을 위한 통합 보안 플랫폼</p>
+      <p class="sol-hero__subtitle">입력 보호부터 행위 제어, 통신 인증, 기밀 실행환경까지 — 외부 LLM과 연동되는 AI 에이전트 전주기를 하나의 프레임워크로 안전하게 운영합니다.</p>
+      <div class="sol-hero__badges">
+        <span class="sol-hero__badge">Privacy Guard</span>
+        <span class="sol-hero__badge">Safety &amp; Policy Guard</span>
+        <span class="sol-hero__badge">Agent Trust Mesh</span>
+        <span class="sol-hero__badge">Confidential Runtime</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 1: 왜 필요한가 ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">왜 필요한가?</h2>
+        <p class="section__subtitle">외부 LLM 연동 멀티 에이전트 환경이 만들어내는 새로운 보안 위협</p>
+      </div>
+      <p class="fade-up" style="text-align: center; max-width: 760px; margin: 0 auto 48px; font-size: 16px; color: var(--text-secondary); line-height: 1.8;">
+        ChatGPT, Claude, Gemini 등 외부 LLM을 연동한 멀티 에이전트 시스템이 기업 업무 전반에 도입되고 있습니다. 그러나 에이전트는 사람보다 훨씬 빠르게 대량의 데이터를 처리하고 도구를 실행하기 때문에, 하나의 보안 취약점이 전체 시스템에 치명적인 피해를 줄 수 있습니다.
+      </p>
+      <div class="problem-grid fade-up">
+        <div class="problem-card">
+          <div class="problem-card__icon"><i class="fa-solid fa-syringe"></i></div>
+          <div class="problem-card__body">
+            <h3 class="problem-card__title">프롬프트 인젝션 &amp; Jailbreak</h3>
+            <p class="problem-card__desc">악의적으로 조작된 입력이 에이전트의 동작을 변조하거나 시스템 프롬프트를 무력화합니다. 멀티 에이전트 환경에서는 한 에이전트가 감염되면 연쇄 전파가 발생합니다.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon"><i class="fa-solid fa-file-circle-minus"></i></div>
+          <div class="problem-card__body">
+            <h3 class="problem-card__title">기밀정보 유출</h3>
+            <p class="problem-card__desc">고객 개인정보, 영업비밀, 내부 문서가 외부 AI 서비스 API로 전송되면서 의도치 않게 기업 기밀이 외부에 노출됩니다.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon"><i class="fa-solid fa-user-secret"></i></div>
+          <div class="problem-card__body">
+            <h3 class="problem-card__title">비인가 에이전트 침투</h3>
+            <p class="problem-card__desc">검증되지 않은 외부 에이전트가 내부 오케스트레이션 시스템에 참여하거나, 신뢰할 수 없는 에이전트로부터의 메시지가 위조·변조될 수 있습니다.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-card__icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div class="problem-card__body">
+            <h3 class="problem-card__title">유해·환각 출력 및 정책 위반</h3>
+            <p class="problem-card__desc">AI 에이전트가 생성하는 유해 콘텐츠, 허위 정보(환각), 규제 위반 응답이 다운스트림 시스템에 자동으로 전파되어 실제 피해로 이어집니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 2: 이상탐지 5대 영역 ========== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">무엇을 탐지하는가?</h2>
+        <p class="section__subtitle">TMAF 이상탐지 5대 영역 — 에이전트 생명주기 전 구간을 감시합니다</p>
+      </div>
+      <div class="detect-grid fade-up">
+        <div class="detect-card">
+          <div class="detect-card__num">영역 01</div>
+          <h3 class="detect-card__title">입력 이상탐지</h3>
+          <ul class="detect-card__list">
+            <li>Prompt Injection 시도 탐지</li>
+            <li>Jailbreak 패턴 식별</li>
+            <li>민감정보 포함 입력 감지</li>
+            <li>정책 위반 질의 차단</li>
+          </ul>
+        </div>
+        <div class="detect-card">
+          <div class="detect-card__num">영역 02</div>
+          <h3 class="detect-card__title">출력 이상탐지</h3>
+          <ul class="detect-card__list">
+            <li>기밀정보 재노출 탐지</li>
+            <li>유해·환각 응답 식별</li>
+            <li>규제 위반 콘텐츠 차단</li>
+            <li>비정상 데이터 결합 탐지</li>
+          </ul>
+        </div>
+        <div class="detect-card">
+          <div class="detect-card__num">영역 03</div>
+          <h3 class="detect-card__title">행위 이상탐지</h3>
+          <ul class="detect-card__list">
+            <li>비정상 Tool Call 순서 탐지</li>
+            <li>과도한 외부 API 호출 감시</li>
+            <li>권한 없는 데이터 접근 탐지</li>
+            <li>에이전트 행동 패턴 기준선 분석</li>
+          </ul>
+        </div>
+        <div class="detect-card">
+          <div class="detect-card__num">영역 04</div>
+          <h3 class="detect-card__title">통신 이상탐지</h3>
+          <ul class="detect-card__list">
+            <li>비인가 에이전트 침투 탐지</li>
+            <li>미등록 에이전트 호출 차단</li>
+            <li>위조·변조 메시지 탐지</li>
+            <li>에이전트 간 채널 무결성 검증</li>
+          </ul>
+        </div>
+        <div class="detect-card" style="grid-column: 1 / -1; max-width: calc(50% - 12px); margin: 0 auto;">
+          <div class="detect-card__num">영역 05</div>
+          <h3 class="detect-card__title">실행환경 이상탐지</h3>
+          <ul class="detect-card__list">
+            <li>보호영역 밖 실행 시도 탐지</li>
+            <li>모델 탈취·파라미터 추출 시도 감지</li>
+            <li>실행환경 무결성 지속 검증</li>
+            <li>라이선스 위반 실행 차단</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 3: 4대 모듈 ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">어떻게 막는가?</h2>
+        <p class="section__subtitle">TMAF 4대 보안 모듈 — 탐지에서 끝나지 않고 자동 대응까지</p>
+      </div>
+      <div class="module-grid fade-up">
+        <div class="module-card">
+          <div class="module-card__tag">기존 TPA</div>
+          <div class="module-card__icon"><i class="fa-solid fa-user-shield"></i></div>
+          <h3 class="module-card__title">Privacy Guard</h3>
+          <p class="module-card__subtitle">기밀정보 탐지 · 치환 · 가명화 · 암호화</p>
+          <p class="module-card__desc">외부 AI 서비스와 연동 시 민감정보를 자동으로 탐지하고 가명화 또는 암호화하여 전송합니다. AI 응답에서 원래 정보를 복원하는 역변환까지 지원하여 업무 흐름을 유지하면서 기밀을 완전히 보호합니다.</p>
+        </div>
+        <div class="module-card">
+          <div class="module-card__tag">기존 TSA</div>
+          <div class="module-card__icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3 class="module-card__title">Safety &amp; Policy Guard</h3>
+          <p class="module-card__subtitle">Prompt Injection / Jailbreak 탐지 · 유해 출력 차단 · 정책 판단</p>
+          <p class="module-card__desc">입력 단계에서 프롬프트 인젝션과 Jailbreak를 실시간으로 탐지·제어하고, 출력 단계에서 유해 콘텐츠와 규제 위반 응답을 차단합니다. 권한 기반 정책 엔진을 통해 에이전트별 허용 행동 범위를 세밀하게 정의합니다.</p>
+        </div>
+        <div class="module-card">
+          <div class="module-card__tag">기존 DPF</div>
+          <div class="module-card__icon"><i class="fa-solid fa-diagram-project"></i></div>
+          <h3 class="module-card__title">Agent Trust Mesh</h3>
+          <p class="module-card__subtitle">에이전트 인증 · 비인가 에이전트 차단 · 안전한 A2A 통신</p>
+          <p class="module-card__desc">멀티 에이전트 시스템에 참여하는 모든 에이전트를 등록·인증하고, 인증되지 않은 에이전트의 접근을 원천 차단합니다. 에이전트 간 통신 메시지의 서명 검증을 통해 위조·변조 없이 안전한 agent-to-agent 커뮤니케이션을 보장합니다.</p>
+        </div>
+        <div class="module-card">
+          <div class="module-card__tag">기존 CC-BOX</div>
+          <div class="module-card__icon"><i class="fa-solid fa-lock"></i></div>
+          <h3 class="module-card__title">Confidential Runtime</h3>
+          <p class="module-card__subtitle">TEE 기반 보호 실행환경 · 모델 탈취 방지 · 무결성 검증</p>
+          <p class="module-card__desc">민감한 에이전트를 TEE(Trusted Execution Environment) 기반 격리 환경에서 운영하여 외부로부터 모델 파라미터와 처리 데이터를 완전히 보호합니다. 실행환경 무결성을 지속적으로 원격 검증(Remote Attestation)하여 탈취 시도를 원천 차단합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 4: 아키텍처 흐름 ========== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">아키텍처 흐름</h2>
+        <p class="section__subtitle">사용자 요청이 안전한 에이전트 실행까지 도달하는 과정</p>
+      </div>
+      <div class="arch-pipeline fade-up">
+
+        <div class="arch-step">
+          <div class="arch-step__icon"><i class="fa-solid fa-user"></i></div>
+          <div class="arch-step__body">
+            <div class="arch-step__title">사용자 / 업무시스템</div>
+            <div class="arch-step__desc">에이전트에 작업을 요청하는 내부 사용자 또는 업무 애플리케이션</div>
+          </div>
+        </div>
+
+        <div class="arch-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+
+        <div class="arch-step arch-step--highlight">
+          <div class="arch-step__icon"><i class="fa-solid fa-user-shield"></i></div>
+          <div class="arch-step__body">
+            <div class="arch-step__title">Privacy Guard</div>
+            <div class="arch-step__desc">입력 내 기밀정보 탐지 &rarr; 가명화 / 암호화 처리</div>
+          </div>
+        </div>
+
+        <div class="arch-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+
+        <div class="arch-step arch-step--highlight">
+          <div class="arch-step__icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="arch-step__body">
+            <div class="arch-step__title">Safety &amp; Policy Guard</div>
+            <div class="arch-step__desc">Prompt Injection / Jailbreak 탐지 &rarr; 정책 판단 &rarr; 유해 입출력 차단</div>
+          </div>
+        </div>
+
+        <div class="arch-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+
+        <div class="arch-step arch-step--highlight">
+          <div class="arch-step__icon"><i class="fa-solid fa-diagram-project"></i></div>
+          <div class="arch-step__body">
+            <div class="arch-step__title">Agent Trust Mesh</div>
+            <div class="arch-step__desc">에이전트 인증 &rarr; 비인가 차단 &rarr; 안전한 A2A 통신 보장</div>
+          </div>
+        </div>
+
+        <div class="arch-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+
+        <div class="arch-step">
+          <div class="arch-step__icon"><i class="fa-solid fa-sitemap"></i></div>
+          <div class="arch-step__body">
+            <div class="arch-step__title">멀티 에이전트 오케스트레이션</div>
+            <div class="arch-step__desc">검증된 에이전트들이 협력하여 작업을 분산 처리</div>
+          </div>
+        </div>
+
+        <div class="arch-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+
+        <div class="arch-step arch-step--highlight">
+          <div class="arch-step__icon"><i class="fa-solid fa-lock"></i></div>
+          <div class="arch-step__body">
+            <div class="arch-step__title">Confidential Runtime</div>
+            <div class="arch-step__desc">TEE 격리 실행 &rarr; 모델 보호 &rarr; 무결성 원격 검증</div>
+          </div>
+        </div>
+
+        <div class="arch-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+
+        <div class="arch-step">
+          <div class="arch-step__icon"><i class="fa-solid fa-chart-bar"></i></div>
+          <div class="arch-step__body">
+            <div class="arch-step__title">Audit / 관리자 콘솔</div>
+            <div class="arch-step__desc">전 구간 이벤트 로그 수집 · 이상탐지 대시보드 · 정책 관리</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 5: 적용 사례 ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">적용 사례</h2>
+        <p class="section__subtitle">실제 서비스 환경에서 검증된 TMAF 적용 프로젝트</p>
+      </div>
+      <div class="case-grid fade-up">
+        <div class="case-card">
+          <div class="case-card__partner">협력사 · Pingpong</div>
+          <h3 class="case-card__title">영수증 데이터 기반<br>광고 최적화 AI 에이전트 시스템</h3>
+          <ul class="case-card__list">
+            <li>영수증 거래 데이터 내 개인정보를 가명화하여 외부 LLM 연동 시 기밀정보 보호 적용</li>
+            <li>광고 최적화 에이전트에 대한 유해 입력 제어 및 출력 검증 기술 결합</li>
+            <li>실제 서비스 환경에서 보안 기능이 결합된 에이전트형 AI 시스템 검증 완료</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <div class="case-card__partner">협력사 · K&amp;C 로펌</div>
+          <h3 class="case-card__title">법률 문서 기밀 보호 기반<br>멀티 에이전트 AI 시스템 도입</h3>
+          <ul class="case-card__list">
+            <li>외부 반출이 제한된 법률 문서의 안전한 AI 활용 체계 설계</li>
+            <li>ChatGPT, Gemini, Harvey 등 외부 생성형 AI 서비스와의 보안 연동</li>
+            <li>기밀정보 치환·암호화 기반 멀티 에이전트 시스템 도입 추진 중</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 6: 차별화 포인트 ========== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">차별화 포인트</h2>
+        <p class="section__subtitle">TMAF는 단순 프롬프트 필터가 아닙니다</p>
+      </div>
+      <div class="diff-grid fade-up">
+        <div class="diff-card">
+          <div class="diff-card__num">1</div>
+          <p class="diff-card__text">멀티 에이전트 전주기 보안 플랫폼 — 입력부터 실행환경까지 에이전트 생명주기 전 구간을 통합 보호합니다.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card__num">2</div>
+          <p class="diff-card__text">입력 보호 + 행동 제어 + 통신 인증 + 기밀 실행환경을 하나의 플랫폼에서 통합 제공합니다.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card__num">3</div>
+          <p class="diff-card__text">외부 LLM 사용을 막지 않고, 안전하게 사용할 수 있게 만드는 플랫폼 — 생산성과 보안을 동시에 달성합니다.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card__num">4</div>
+          <p class="diff-card__text">탐지에서 끝나지 않고 치환·차단·격리·승인까지 자동 대응하여 운영 부담 없이 보안을 유지합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 7: 적용 분야 ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <h2 class="section__title">적용 분야</h2>
+        <p class="section__subtitle">규제와 기밀 데이터를 다루는 모든 산업에 적합합니다</p>
+      </div>
+      <div class="industry-tags fade-up">
+        <span class="industry-tag"><i class="fa-solid fa-landmark" style="margin-right:8px;"></i>금융</span>
+        <span class="industry-tag"><i class="fa-solid fa-building-columns" style="margin-right:8px;"></i>공공</span>
+        <span class="industry-tag"><i class="fa-solid fa-hospital" style="margin-right:8px;"></i>의료</span>
+        <span class="industry-tag"><i class="fa-solid fa-scale-balanced" style="margin-right:8px;"></i>법률</span>
+        <span class="industry-tag"><i class="fa-solid fa-industry" style="margin-right:8px;"></i>제조</span>
+        <span class="industry-tag"><i class="fa-solid fa-cloud" style="margin-right:8px;"></i>SaaS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="sol-cta">
+    <div class="container">
+      <h2 class="sol-cta__title fade-up">TMAF로 멀티 에이전트 AI를 안전하게 운영하세요</h2>
+      <p class="sol-cta__desc fade-up">사이시큐연구소 전문 연구진이 귀사의 AI 에이전트 환경에 최적화된 보안 아키텍처를 설계해 드립니다.</p>
+      <div class="fade-up">
+        <a href="../ppt.html#contact" class="btn btn--secondary">지금 문의하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BOTTOM BADGES ========== -->
+  <div class="bottom-badges">
+    <div class="bottom-badges__inner">
+      <span class="bottom-badge">Anomaly Detection</span>
+      <span class="bottom-badge">Multi-Agent Security</span>
+      <span class="bottom-badge">Prompt Injection Defense</span>
+      <span class="bottom-badge">Confidential AI</span>
+      <span class="bottom-badge">Zero Trust Agent Communication</span>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__logo">사이시큐연구소 | CySecuLab</p>
+      <p class="footer__text">연결된 모든 사이버 공간을 안전하게 보호하는 시스템 보안 연구소</p>
+      <p class="footer__text">대전광역시 유성구 대학로 291, KAIST</p>
+      <p class="footer__copyright">&copy; 2023 주식회사 사이시큐연구소. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

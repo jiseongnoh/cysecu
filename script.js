@@ -55,30 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.addEventListener('scroll', updateActiveNav);
 
-  // --- Nav dropdown links -> activate tab ---
-  document.querySelectorAll('.nav__dropdown-menu a[href^="#sol-"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href').slice(1);
-      activateTab(targetId);
-      history.replaceState(null, '', '#' + targetId);
-      const solSection = document.getElementById('solutions');
-      if (solSection) solSection.scrollIntoView({ behavior: 'smooth' });
-      // Close mobile nav
-      if (navLinks) navLinks.classList.remove('open');
-    });
-  });
-
-  // --- Mobile dropdown toggle ---
-  document.querySelectorAll('.nav__dropdown > a').forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        trigger.parentElement.classList.toggle('open');
-      }
-    });
-  });
-
   // --- Solution Tabs ---
   const tabs = document.querySelectorAll('.solutions__tab');
   const panels = document.querySelectorAll('.solutions__panel');
