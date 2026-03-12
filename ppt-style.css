@@ -43,13 +43,17 @@
   box-shadow: 0 2px 20px rgba(0,36,108,0.2);
 }
 .nav__logo img {
-  filter: brightness(0) invert(1);
+  background: rgba(255,255,255,0.85);
+  border-radius: 6px;
+  padding: 4px 8px;
 }
 .nav__logo-text {
   color: #fff;
 }
 .hero__logo {
-  filter: brightness(0) invert(1);
+  background: rgba(255,255,255,0.85);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
 }
 .nav__links a {
   color: rgba(255,255,255,0.85);
