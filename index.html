@@ -7,6 +7,7 @@
   <meta name="description" content="KAIST 정보보호대학원 기반 시스템 보안 연구소. Confidential AI, Hardware Security, 네트워크 보안 솔루션을 제공합니다.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
 </head>
 <body>
 
@@ -148,11 +149,12 @@
       <div class="section__header fade-up">
         <h2 class="section__title">보안 솔루션</h2>
         <p class="section__subtitle">엔드 디바이스부터 클라우드까지, 모든 계층을 보호합니다</p>
+        <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">외부 생성형 AI와 연동되는 멀티 에이전트 시스템의 이상행위를 탐지·통제하는 AI 보안 플랫폼</p>
       </div>
 
       <!-- Desktop Tabs -->
       <div class="solutions__tabs fade-up">
-        <button class="solutions__tab active" data-target="sol-tmaf">TMAF</button>
+        <button class="solutions__tab active" data-target="sol-tmaf"><span style="background:var(--accent);color:#fff;font-size:11px;padding:2px 8px;border-radius:10px;margin-right:6px;font-weight:700;">대표</span>TMAF</button>
         <button class="solutions__tab" data-target="sol-dpf">DPF</button>
         <button class="solutions__tab" data-target="sol-ccbox">CC-BOX</button>
         <button class="solutions__tab" data-target="sol-ccsbom">CC-SBOM</button>
@@ -314,10 +316,7 @@
       <!-- Mobile Accordion -->
       <div class="solutions__accordion">
         <div class="accordion-item">
-          <button class="accordion-trigger">
-            <span>TMAF - Trusted Multi-Agent Framework</span>
-            <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
-          </button>
+          <button class="accordion-trigger"><span><span style="background:var(--accent);color:#fff;font-size:11px;padding:2px 8px;border-radius:10px;margin-right:6px;font-weight:700;">대표</span>TMAF</span><i class="fa-solid fa-chevron-down accordion-trigger__icon"></i></button>
           <div class="accordion-content">
             <div class="accordion-content__inner">
               <p class="solution-detail__desc">멀티 에이전트 AI 시스템의 데이터·행위·통신·실행환경 이상을 탐지하고 통제하는 통합 보안 플랫폼입니다.</p>
@@ -333,7 +332,7 @@
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger">
-            <span>DPF - Dialect Perimeter Filter</span>
+            <span>DPF</span>
             <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
           </button>
           <div class="accordion-content">
@@ -349,7 +348,7 @@
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger">
-            <span>CC-BOX - Confidential Computing Platform</span>
+            <span>CC-BOX</span>
             <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
           </button>
           <div class="accordion-content">
@@ -365,7 +364,7 @@
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger">
-            <span>CC-SBOM - Confidential Computing SBOM</span>
+            <span>CC-SBOM</span>
             <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
           </button>
           <div class="accordion-content">
@@ -381,7 +380,7 @@
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger">
-            <span>Outerstellar - HW Safety Monitor</span>
+            <span>Outerstellar</span>
             <i class="fa-solid fa-chevron-down accordion-trigger__icon"></i>
           </button>
           <div class="accordion-content">
@@ -504,6 +503,30 @@
           <p class="team-card__degree">KAIST 정보보호대학원 석사</p>
           <p class="team-card__field">AI 시스템 프라이버시, 시스템 API 보안, SBOM 설계</p>
           <span class="team-card__highlight">SBOM 보안 연구</span>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">AT</div>
+          <p class="team-card__degree">KAIST 정보보호대학원 박사과정</p>
+          <p class="team-card__field">AI Agent Safety & Trustness, AI Environmental Privacy Protection, TPA</p>
+          <span class="team-card__highlight">AI 에이전트 환경 프라이버시 연구</span>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">GP</div>
+          <p class="team-card__degree">KAIST 정보보호대학원 석사과정</p>
+          <p class="team-card__field">GPU 메모리 보안, 시스템 보안, SBOM 기술 연구</p>
+          <span class="team-card__highlight">GPU 보안 연구</span>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">DF</div>
+          <p class="team-card__degree">KAIST 정보보호대학원 석사과정</p>
+          <p class="team-card__field">Dialect Perimeter Filter(DPF), AI 기반 소프트웨어 취약점 분석</p>
+          <span class="team-card__highlight">DPF / AI 취약점 분석</span>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">AG</div>
+          <p class="team-card__degree">KAIST 정보보호대학원 석사과정</p>
+          <p class="team-card__field">AI 에이전트 보안 연구, Trusted Privacy Agent(TPA)</p>
+          <span class="team-card__highlight">AI 에이전트 보안</span>
         </div>
       </div>
     </div>
