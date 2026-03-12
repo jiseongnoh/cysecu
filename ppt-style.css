@@ -185,6 +185,19 @@ a:hover {
   color: var(--accent-hover);
 }
 
+/* --- Nav Dropdown Override --- */
+.nav__dropdown-menu {
+  background: var(--primary);
+  border-color: rgba(0,136,238,0.2);
+}
+.nav__dropdown-menu a {
+  color: rgba(255,255,255,0.85) !important;
+}
+.nav__dropdown-menu a:hover {
+  background: rgba(0,136,238,0.2) !important;
+  color: var(--accent-light) !important;
+}
+
 /* --- Mobile nav override --- */
 @media (max-width: 768px) {
   .nav__links {
