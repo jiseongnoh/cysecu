@@ -21,3 +21,6 @@ assets/images/slide*
 
 # Docs/plans (local only)
 docs/
+
+# But keep assets/docs (PDFs for site)
+!assets/docs/
